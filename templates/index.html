@@ -1,4 +1,29 @@
 {% extends 'base.html' %}
+
 {% block content %}
-<p class="text-primary">hi</p>
+<!-- Code for carousel from https://www.youtube.com/watch?v=9HcxHDS2w1s -->
+<section aria-label="Latest Movies">
+    <div class="carousel" data-carousel>
+        <button class="carousel-button prev" data-carousel-button="prev">
+            <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <button class="carousel-button next" data-carousel-button="next">
+            <i class="fa-solid fa-arrow-right"></i>
+        </button>
+        <ul data-slides>
+            <li class="slide" data-active>
+                <img src="https://insomniac.games/wp-content/uploads/2018/09/Spider-Man_PS4_Selfie_Photo_Mode_LEGAL.jpg" alt="Spider man image">
+            </li>
+            <li class="slide">
+                <img src="https://www.denofgeek.com/wp-content/uploads/2021/08/batman-89-1.jpg?resize=768%2C432" alt="Batman image">
+            </li>
+            <li class="slide">
+                <img src="https://cdn.mos.cms.futurecdn.net/aTK8YBkBAbqCSzNGxt8adL-1200-80.jpg.webp" alt="Ironman image">
+            </li>
+            
+        </ul>
+    </div>
+</section>
+
+<script src="../static/js/script.js" defer></script>
 {% endblock %}
