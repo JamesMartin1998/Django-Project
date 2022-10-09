@@ -8,9 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="../static/style.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <title>Cinema Planet</title>
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
     <!-- Navbar code base on from https://getbootstrap.com/docs/5.2/components/navbar/ -->
     
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
@@ -44,6 +45,33 @@
     {% block content %}
 
     {% endblock %}
+
+    <footer class="mt-auto text-white bg-dark">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-4 d-flex justify-content-center align-items-center footer-div">
+                    <a class="text-white" href="#">contact@cinemaplanet.co.uk</a>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 d-flex justify-content-center align-items-center footer-div">
+                    <div>
+                        <h4 class="footer-header">
+                            Opening Hours:
+                        </h4>
+                        <p class="footer-p">Mon-Sun: 10:00-23:00</p>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-4 d-flex justify-content-center align-items-center footer-div">
+                        <ul class="social-networks">
+                            <li class="socials"><a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Visit our Facebook page (opens in a new tab)"><i class="fa-brands fa-facebook"></i></a></li>
+                            <li class="socials"><a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Visit our Twitter page (opens in a new tab)"><i class="fa-brands fa-twitter-square"></i></a></li>
+                            <li class="socials"><a href="https://youtube.com" target="_blank" rel="noopener" aria-label="Visit our Youtube page (opens in a new tab)"><i class="fa-brands fa-youtube-square"></i></a></li>
+                            <li class="socials"><a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Visit our Instagram page (opens in a new tab)"><i class="fa-brands fa-instagram"></i></a></li>
+                        </ul>
+                </div>
+            </div>
+
+        </div>
+    </footer>
     
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>

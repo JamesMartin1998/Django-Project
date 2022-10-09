@@ -1,0 +1,25 @@
+.social-networks {
+    margin: 0;
+    padding: 0;
+}
+
+.socials {
+    display: inline-block;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+.social-networks i {
+    color: white;
+    font-size: 1.5em;
+}
+
+.footer-header, .footer-p {
+    margin:0;
+}
+
+
+.footer-div {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
