@@ -2,10 +2,11 @@ from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
+
 class Movies(models.Model):
     title = models.CharField(max_length=200)
     slug = models.SlugField(max_length=200, unique=True)
-    day_shown = models.DateField()
+    day_shown = models.CharField(max_length=50)
     time_shown = models.TimeField()
     description = models.TextField()
     featured_image = CloudinaryField('image')
