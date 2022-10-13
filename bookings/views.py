@@ -5,8 +5,17 @@ from .models import Movies
 
 # Create your views here.
 
-def home(request):
-    return render(request, 'index.html')
+
+class ShowPage():
+    def home(request):
+        return render(request, 'index.html')
+
+    def movies(request):
+        return render(request, 'movies.html')
+
+
+
+
 
 
 class MoviesList(generic.ListView):
