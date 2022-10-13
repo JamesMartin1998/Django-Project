@@ -2,4 +2,12 @@
 
 {% block content %}
 
+
+<div>
+    {% for movie in movies %}
+    <h1> {{ movie.title }} </h1>
+    {% endfor %}
+</div>
+
+
 {% endblock %}
