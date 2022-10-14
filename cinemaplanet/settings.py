@@ -16,6 +16,17 @@ import dj_database_url
 if os.path.isfile('env.py'):
     import env
 
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
+# Cloudinary
+# cloudinary.config( 
+#     cloud_name = os.environ.get('CLOUD_NAME'), 
+#     api_key = os.environ.get('API_KEY'), 
+#     api_secret = os.environ.get('API_SECRET') 
+# )
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')

@@ -103,3 +103,22 @@ body {
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
 }
+
+
+/* Movies */
+
+.movie-col img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.movie-col {
+    margin-bottom: 2rem;
+}
+
+.movie-col a {
+    color: black;
+}
