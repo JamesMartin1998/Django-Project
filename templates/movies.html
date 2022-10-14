@@ -8,7 +8,7 @@
         {% for movie in movies %}
         <div class="col-lg-4 col-md-6 movie-col">
             <div>
-                <img src="{{ movie.featured_image.url }}" alt="{{ movie.title }} image">
+                <a href="{{ movie.slug }}"><img src="{{ movie.featured_image.url }}" alt="{{ movie.title }} image"></a>
             </div>
             <div class="d-flex justify-content-center align-items-center">
                 <a href="{{ movie.slug }}"><h6> {{ movie.title }} </h6></a>
