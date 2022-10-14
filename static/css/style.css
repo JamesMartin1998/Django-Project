@@ -105,7 +105,7 @@ body {
 }
 
 
-/* Movies */
+/* Movies Page*/
 
 .movie-col img {
     display: block;
@@ -121,4 +121,45 @@ body {
 
 .movie-col a {
     color: black;
+}
+
+/* Movie Details Page */
+
+.movie-title {
+    text-align: center;
+    margin: 2rem 0 0 0;
+}
+
+.movie-showcase-div {
+    margin: 1rem 0 1rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.movie-showcase-div img {
+    width: 100%;
+    height: auto;
+}
+
+.movie-desc ul {
+    list-style: none;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.movie-desc span {
+    font-weight: 600;
+}
+
+.book-btn {
+    margin: 2rem 0 3rem 0;
+    width: 10rem;
+    background-color: rgb(86, 86, 86);
+    color: white;
+}
+
+.book-btn:hover {
+    background-color: rgba(86,86,86, 0.8);
 }
