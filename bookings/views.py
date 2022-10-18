@@ -11,6 +11,9 @@ class ShowPage():
     def home(request):
         return render(request, 'index.html')
 
+    # def sign_up(request):
+    #     return render(request, 'signup.html')
+
     # def movies(request):
     #     return render(request, 'movies.html')
 
