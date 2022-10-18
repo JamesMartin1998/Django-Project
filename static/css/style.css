@@ -190,8 +190,19 @@ body {
     width: 300px;
 }
 
-#login-form > p:nth-child(4) > label {
+/* #login-form > p:nth-child(4) > label {
     display: inline-block!important;
+} */
+
+#login-form ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem 0;
+}
+
+#login-form li {
+    max-width: 300px;
+    color: red;
 }
 
 #id_remember {
