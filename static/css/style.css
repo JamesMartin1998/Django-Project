@@ -178,16 +178,24 @@ body {
     margin: 2rem 0 0 0;
 }
 
-#signup-div {
+#signup-div, #login-div {
     margin: 0 0 2rem 0;
 }
 
-#signup_form label {
+#signup_form label, #login-form label {
     display: block;
 }
 
-.signup input {
+.signup input, .login input {
     width: 300px;
+}
+
+#login-form > p:nth-child(4) > label {
+    display: inline-block!important;
+}
+
+#id_remember {
+    max-width: 30px;
 }
 
 .button-div {
@@ -207,7 +215,7 @@ body {
   }
 
 @media only screen and (max-width: 320px) {
-    .signup input {
+    .signup input, .login input {
         width: 250px;
     }
   }
