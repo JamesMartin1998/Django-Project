@@ -6,7 +6,7 @@ from .models import Movies, Showings, Bookings
 
 @admin.register(Movies)
 class MoviesAdmin(admin.ModelAdmin):
-    list_display = ('title', 'slug', 'day_shown', 'time_shown')
+    list_display = ('title', 'slug')
     prepopulated_fields = {'slug': ('title',)}
 
 

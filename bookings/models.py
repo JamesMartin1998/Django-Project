@@ -6,12 +6,9 @@ from cloudinary.models import CloudinaryField
 class Movies(models.Model):
     title = models.CharField(max_length=200)
     slug = models.SlugField(max_length=200, unique=True)
-    day_shown = models.CharField(max_length=50)
-    time_shown = models.TimeField()
     description = models.TextField()
     featured_image = CloudinaryField('image')
     run_time = models.IntegerField()
-    ticket_price = models.IntegerField()
 
     def __str__(self):
         return self.title
@@ -19,10 +16,13 @@ class Movies(models.Model):
 
 class Showings(models.Model):
     movie = models.ForeignKey(Movies, on_delete=models.CASCADE)
+    day_shown = models.DateField()
+    time_shown = models.TimeField()
     seats_remaining = models.IntegerField()
+    ticket_price = models.IntegerField()
 
     def __str__(self):
-        return f"{self.title} on {self.day_shown} at {self.time_shown}"
+        return f"{self.movie.title} on {self.day_shown} at {self.time_shown}"
 
 
 class Bookings(models.Model):
@@ -32,7 +32,7 @@ class Bookings(models.Model):
     number_of_tickets = models.IntegerField()
 
     def __str__(self):
-        return f"{self.first_name} {self.last_name} for {self.title} on {self.day_shown} at {self.time_shown}"
+        return f"{self.user.first_name} {self.user.last_name} for {self.movie.title} on {self.showing.day_shown} at {self.showing.time_shown}"
 
 
 
