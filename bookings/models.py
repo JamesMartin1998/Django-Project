@@ -16,6 +16,7 @@ class Movies(models.Model):
 
 class Showings(models.Model):
     movie = models.ForeignKey(Movies, on_delete=models.CASCADE)
+    location = models.CharField(max_length=200, default="London")
     day_shown = models.DateField()
     time_shown = models.TimeField()
     seats_remaining = models.IntegerField()
