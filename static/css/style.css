@@ -129,7 +129,7 @@ body {
 
 /* Movie Details Page */
 
-.movie-title {
+.center-title {
     text-align: center;
     margin: 2rem 0 0 0;
 }
@@ -235,5 +235,13 @@ body {
     }
   }
 
+/* Movie Showings */
 
+.showings-table {
+    margin: 2rem 0 2rem 0;
+}
 
+.showings-table td, .showings-table th {
+    padding: 0.5rem;
+    text-align: center;
+}

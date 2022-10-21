@@ -2,7 +2,7 @@
 
 {% block content %}
     <div>
-        <h1 class="movie-title">{{ movie.title }}</h1>
+        <h1 class="center-title">{{ movie.title }}</h1>
     </div>
 
     <div class="d-flex justify-content-center align-items-center">
@@ -19,7 +19,7 @@
     </div>
 
     <div class="d-flex justify-content-center align-items-center">
-        <a href="{% url 'book' slug=movie.slug %}"><button class="custom-btn">Book Ticket</button></a>
+        <a href="{% url 'shows' slug=movie.slug %}"><button class="custom-btn">Book Ticket</button></a>
     </div> 
         
     

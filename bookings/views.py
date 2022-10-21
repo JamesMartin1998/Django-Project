@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from django.views import generic, View
-from .models import Movies, Showings
+from .models import Movies, Showings, Bookings
 from django.template import loader
 
 # Create your views here.
@@ -38,12 +38,13 @@ def movie_detail(request, slug):
 #     movies = Movies.objects.all()
 
 
-class Book(View):
+class Shows(View):
 
     def get(self, request, slug):
         movie = Movies.objects.get(slug=slug)
         showings = Showings.objects.filter(movie=movie)
         context = {
+            'movie': movie,
             'showings': showings
         }
         return render(request, "book.html", context)

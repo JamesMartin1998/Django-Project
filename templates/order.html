@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for showing in showings %}
+
+{{ showing.time_shown }}
+
+{% endfor %}
+
+{% endblock %}
