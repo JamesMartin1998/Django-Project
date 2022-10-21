@@ -2,10 +2,18 @@
 
 {% block content %}
 
-{% for showing in showings %}
+<h1>Order for {{ movie.title }}:</h1>
+    <form method="POST" action="">
+        {% csrf_token %}
 
-{{ showing.time_shown }}
+        <label for="tickets">Number of Tickets:</label>
+        <input type="number" id="tickets" name="tickets">
 
-{% endfor %}
+        <div>
+            <p>
+                <button type="submit">Order</button>
+            </p>
+        </div>
+    </form>
 
 {% endblock %}

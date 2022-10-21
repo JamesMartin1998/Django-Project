@@ -1,8 +1,9 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from django.views import generic, View
 from .models import Movies, Showings, Bookings
 from django.template import loader
+from django.contrib.auth.models import User
 
 # Create your views here.
 
@@ -48,3 +49,25 @@ class Shows(View):
             'showings': showings
         }
         return render(request, "book.html", context)
+
+
+class MakeOrder(View):
+    def get(self, request, slug, id):
+        movie = Movies.objects.get(slug=slug)
+        showing = get_object_or_404(Showings, id=id)
+
+        context = {
+            'movie': movie,
+            'showing': showing,
+        }
+
+        return render(request, "order.html", context)
+
+    def post(self, request, slug, id):
+        user = request.user
+        movie = Movies.objects.get(slug=slug)
+        showing = get_object_or_404(Showings, id=id)
+        tickets = request.POST.get("tickets")
+        Bookings.objects.create(user=user, movie=movie, showing=showing, number_of_tickets=tickets)
+
+        return redirect('home')
