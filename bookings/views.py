@@ -70,4 +70,25 @@ class MakeOrder(View):
         tickets = request.POST.get("tickets")
         Bookings.objects.create(user=user, movie=movie, showing=showing, number_of_tickets=tickets)
 
+        showing.seats_remaining = showing.seats_remaining-int(tickets)
+        showing.save()
+
         return redirect('home')
+
+
+        # try:
+        #     seats_after_booking = remaining_seats_for_showing - tickets
+        #     if seats_after_booking >= 0:
+        #         Bookings.objects.create(user=user, movie=movie, showing=showing, number_of_tickets=tickets)
+        #         Showings.objects.filter(showing).update(seats_remaining=seats_after_booking)
+        #         showing.seats_remaining = seats_after_booking
+        #     else:
+        #         raise Exception(
+        #             print('Not enough seats remaining. Need to reduce tickets.')
+        #         )
+        # except:
+        #     Exception(
+        #         redirect('home')
+        #     )
+
+        # return redirect('home')
