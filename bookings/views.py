@@ -11,12 +11,17 @@ from django.contrib import messages
 
 class ManageBookings(View):
     def get(self, request):
-        user = request.user
-        bookings = Bookings.objects.filter(user=user)
+        # conditional fixes 'AnonymousUser' object is not iterable
+        # https://stackoverflow.com/questions/43544366/anonymoususer-object-is-not-iterable-django
+        if request.user.is_authenticated:
+            user = request.user
+            bookings = Bookings.objects.filter(user=user)
 
-        context = {'bookings': bookings}
+            context = {'bookings': bookings}
 
-        return render(request, 'index.html', context)
+            return render(request, 'index.html', context)
+        else:
+            return render(request, 'index.html')
 
 
 def get_movies(request):

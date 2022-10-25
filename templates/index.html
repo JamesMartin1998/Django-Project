@@ -24,30 +24,33 @@
         </ul>
     </div>
 </section>
-
-<section class="mt-3">
-    <div class="d-flex justify-content-center">
-        <div>
-            <h2>Your Active Bookings</h2>
-            <table class="active-bookings">
-                <tr>
-                    <th>Movie</th>
-                    <th>Tickets</th>
-                    <th>Date</th>
-                    <th>Time</th>
-                </tr>
-                {% for booking in bookings %}
-                <tr>
-                    <td>{{ booking.movie.title }}</td>
-                    <td>{{ booking.number_of_tickets }}</td>
-                    <td>{{ booking.showing.day_shown }}</td>
-                    <td>{{ booking.showing.time_shown }}</td>
-                </tr>
-                {% endfor %}
-            </table>
+{% if user.is_authenticated %}
+    {% if bookings|length >= 1 %}
+    <section class="mt-3">
+        <div class="d-flex justify-content-center">
+            <div>
+                <h2>Your Active Bookings</h2>
+                <table class="active-bookings">
+                    <tr>
+                        <th>Movie</th>
+                        <th>Tickets</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                    </tr>
+                    {% for booking in bookings %}
+                    <tr>
+                        <td>{{ booking.movie.title }}</td>
+                        <td>{{ booking.number_of_tickets }}</td>
+                        <td>{{ booking.showing.day_shown }}</td>
+                        <td>{{ booking.showing.time_shown }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
+    {% endif %}
+{% endif %}
 
 <script src="../static/js/script.js" defer></script>
 {% endblock %}
