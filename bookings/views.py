@@ -4,6 +4,7 @@ from django.views import generic, View
 from .models import Movies, Showings, Bookings
 from django.template import loader
 from django.contrib.auth.models import User
+from django.contrib import messages
 
 # Create your views here.
 
@@ -69,15 +70,28 @@ class MakeOrder(View):
         showing = get_object_or_404(Showings, id=id)
         tickets = request.POST.get("tickets")
 
-        try:
-            showing.seats_remaining = showing.seats_remaining-int(tickets)
-            if showing.seats_remaining >= 0:
-                Bookings.objects.create(user=user, movie=movie, showing=showing, number_of_tickets=tickets)
-                showing.save()
-                return redirect('home')
-            else:
-                raise exception(print('Not enough tickets remaining.'))
-        except Exception:
-            # Code from tutor, John, at Code Institute
+        showing.seats_remaining = showing.seats_remaining-int(tickets)
+        if showing.seats_remaining >= 0:
+            Bookings.objects.create(user=user, movie=movie, showing=showing, number_of_tickets=tickets)
+            showing.save()
+            messages.success(request, "Tickets Ordered Successfully!")
+            return redirect('home')
+        else:
+            messages.error(request, "Not enough seats remaining to book tickets. Please reduce your number of tickets and try again.")
             return redirect(reverse('order', args=[slug, id]))
             
+
+
+
+        # try:
+        #     showing.seats_remaining = showing.seats_remaining-int(tickets)
+        #     if showing.seats_remaining >= 0:
+        #         Bookings.objects.create(user=user, movie=movie, showing=showing, number_of_tickets=tickets)
+        #         showing.save()
+        #         return redirect('home')
+        #     else:
+        #         raise exception(print('Not enough tickets remaining.'))
+        # except Exception:
+        #     # Code from tutor, John, at Code Institute
+        #     return redirect(reverse('order', args=[slug, id]))
+        
