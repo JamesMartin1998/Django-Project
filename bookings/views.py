@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.http import HttpResponse
 from django.views import generic, View
 from .models import Movies, Showings, Bookings
@@ -68,27 +68,16 @@ class MakeOrder(View):
         movie = Movies.objects.get(slug=slug)
         showing = get_object_or_404(Showings, id=id)
         tickets = request.POST.get("tickets")
-        Bookings.objects.create(user=user, movie=movie, showing=showing, number_of_tickets=tickets)
 
-        showing.seats_remaining = showing.seats_remaining-int(tickets)
-        showing.save()
-
-        return redirect('home')
-
-
-        # try:
-        #     seats_after_booking = remaining_seats_for_showing - tickets
-        #     if seats_after_booking >= 0:
-        #         Bookings.objects.create(user=user, movie=movie, showing=showing, number_of_tickets=tickets)
-        #         Showings.objects.filter(showing).update(seats_remaining=seats_after_booking)
-        #         showing.seats_remaining = seats_after_booking
-        #     else:
-        #         raise Exception(
-        #             print('Not enough seats remaining. Need to reduce tickets.')
-        #         )
-        # except:
-        #     Exception(
-        #         redirect('home')
-        #     )
-
-        # return redirect('home')
+        try:
+            showing.seats_remaining = showing.seats_remaining-int(tickets)
+            if showing.seats_remaining >= 0:
+                Bookings.objects.create(user=user, movie=movie, showing=showing, number_of_tickets=tickets)
+                showing.save()
+                return redirect('home')
+            else:
+                raise exception(print('Not enough tickets remaining.'))
+        except Exception:
+            # Code from tutor, John, at Code Institute
+            return redirect(reverse('order', args=[slug, id]))
+            
