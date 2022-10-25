@@ -19,17 +19,6 @@ class ManageBookings(View):
         return render(request, 'index.html', context)
 
 
-# class ShowPage():
-#     def home(request):
-#         return render(request, 'index.html')
-
-    # def sign_up(request):
-    #     return render(request, 'signup.html')
-
-    # def movies(request):
-    #     return render(request, 'movies.html')
-
-
 def get_movies(request):
     movies = Movies.objects.all()
     context = {

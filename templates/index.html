@@ -36,12 +36,14 @@
                     <th>Date</th>
                     <th>Time</th>
                 </tr>
+                {% for booking in bookings %}
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>{{ booking.movie.title }}</td>
+                    <td>{{ booking.number_of_tickets }}</td>
+                    <td>{{ booking.showing.day_shown }}</td>
+                    <td>{{ booking.showing.time_shown }}</td>
                 </tr>
+                {% endfor %}
             </table>
         </div>
     </div>
