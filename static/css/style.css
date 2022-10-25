@@ -8,6 +8,7 @@
 
 body {
     margin: 0;
+    position: relative;
 }
 
 .carousel {
@@ -106,6 +107,16 @@ body {
 .footer-div {
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
+}
+
+/* Messages */
+
+.message-container {
+    position: absolute;
+    z-index: 2;
+    top: 10%;
+    left:10%;
+    width: 80%;
 }
 
 
