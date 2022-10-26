@@ -1,8 +1,18 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
 {{ booking.movie.title }}
-{{ booking.showing.day_shown }}
-{{ booking.showing.time_shown }}
-{{ booking.number_of_tickets }}
+<form method="POST" action="">
+    {% csrf_token %}
+    <label for="edit-date">Date</label>
+    <select name="edit-date" id="edit-date">
+        
+        {% for date in current_movie_showings_dates %}
+        <option value="{{ date }}">{{ date }}</option> 
+        {% endfor %}
+        
+    </select>
+    
+</form>
 {% endblock %}

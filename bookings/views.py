@@ -85,12 +85,35 @@ class MakeOrder(View):
             # Code from tutor, John, at Code Institute
             return redirect(reverse('order', args=[slug, id]))
 
+
 class EditBooking(View):
     def get(self, request, id):
         user = request.user
+        movies = Movies.objects.all()
+        showings = Showings.objects.all()
         bookings = Bookings.objects.filter(user=user)
         booking = get_object_or_404(bookings, id=id)
-        context = {'booking': booking}
+        
+        current_movie = booking.movie
+        current_movie_showings = showings.filter(movie=current_movie)
+
+        def get_current_movie_showings_dates(showings):
+            list_of_dates_list = []
+            for showing in showings:
+                list_of_dates_list.append(showing.day_shown)
+            list_of_dates_set = set(list_of_dates_list)
+            return list_of_dates_set
+
+        current_movie_showings_dates = get_current_movie_showings_dates(current_movie_showings)
+            
+        context = {
+            'booking': booking,
+            'movies': movies,
+            'showings': showings,
+            'current_movie': current_movie,
+            'current_movie_showings': current_movie_showings,
+            'current_movie_showings_dates': current_movie_showings_dates
+        }
 
         return render(request, 'edit-booking.html', context)
 
