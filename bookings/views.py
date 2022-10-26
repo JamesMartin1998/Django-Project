@@ -84,7 +84,15 @@ class MakeOrder(View):
             messages.error(request, "Not enough seats remaining to book tickets. Please reduce your number of tickets and try again.")
             # Code from tutor, John, at Code Institute
             return redirect(reverse('order', args=[slug, id]))
-            
+
+class EditBooking(View):
+    def get(self, request, id):
+        user = request.user
+        bookings = Bookings.objects.filter(user=user)
+        booking = get_object_or_404(bookings, id=id)
+        context = {'booking': booking}
+
+        return render(request, 'edit-booking.html', context)
 
 
 
