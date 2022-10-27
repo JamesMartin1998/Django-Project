@@ -2,17 +2,24 @@
 
 {% block content %}
 
-{{ booking.movie.title }}
+<!-- {{ booking.movie.title }}
 <form method="POST" action="">
     {% csrf_token %}
     <label for="edit-date">Date</label>
     <select name="edit-date" id="edit-date">
-        
         {% for date in current_movie_showings_dates %}
         <option value="{{ date }}">{{ date }}</option> 
         {% endfor %}
-        
     </select>
-    
+
+    Date Selected:  {{ date_selected }} -->
+
+<!-- </form> -->
+
+<form method="POST" action="">
+    {% csrf_token %}
+    {{form}}
+    <input type="submit">
 </form>
+
 {% endblock %}

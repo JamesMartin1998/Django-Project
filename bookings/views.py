@@ -5,6 +5,7 @@ from .models import Movies, Showings, Bookings
 from django.template import loader
 from django.contrib.auth.models import User
 from django.contrib import messages
+from .forms import BookingForm
 
 # Create your views here.
 
@@ -86,7 +87,29 @@ class MakeOrder(View):
             return redirect(reverse('order', args=[slug, id]))
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 class EditBooking(View):
+
     def get(self, request, id):
         user = request.user
         movies = Movies.objects.all()
@@ -94,9 +117,11 @@ class EditBooking(View):
         bookings = Bookings.objects.filter(user=user)
         booking = get_object_or_404(bookings, id=id)
         
+        
         current_movie = booking.movie
         current_movie_showings = showings.filter(movie=current_movie)
 
+        # Loops through all showings for a particular movie, gets the values from day_shown keys and creates a list. The set then removes duplicate dates.
         def get_current_movie_showings_dates(showings):
             list_of_dates_list = []
             for showing in showings:
@@ -105,29 +130,31 @@ class EditBooking(View):
             return list_of_dates_set
 
         current_movie_showings_dates = get_current_movie_showings_dates(current_movie_showings)
-            
+
+        date_selected = request.POST.get('edit-date')
+
+        form = BookingForm(instance=booking)
+
         context = {
             'booking': booking,
             'movies': movies,
             'showings': showings,
             'current_movie': current_movie,
             'current_movie_showings': current_movie_showings,
-            'current_movie_showings_dates': current_movie_showings_dates
+            'current_movie_showings_dates': current_movie_showings_dates,
+            'date_selected': date_selected,
+            'form': form
         }
 
         return render(request, 'edit-booking.html', context)
 
+    def post(self, request, id):
 
+        user = request.user
+        bookings = Bookings.objects.filter(user=user)
+        booking = get_object_or_404(bookings, id=id)
 
-        # try:
-        #     showing.seats_remaining = showing.seats_remaining-int(tickets)
-        #     if showing.seats_remaining >= 0:
-        #         Bookings.objects.create(user=user, movie=movie, showing=showing, number_of_tickets=tickets)
-        #         showing.save()
-        #         return redirect('home')
-        #     else:
-        #         raise exception(print('Not enough tickets remaining.'))
-        # except Exception:
-        #     # Code from tutor, John, at Code Institute
-        #     return redirect(reverse('order', args=[slug, id]))
-        
+        form = BookingForm(request.POST, instance=booking)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
