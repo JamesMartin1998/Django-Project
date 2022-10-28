@@ -87,27 +87,6 @@ class MakeOrder(View):
             return redirect(reverse('order', args=[slug, id]))
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 class EditBooking(View):
 
     def get(self, request, id):
@@ -154,7 +133,51 @@ class EditBooking(View):
         bookings = Bookings.objects.filter(user=user)
         booking = get_object_or_404(bookings, id=id)
 
+        original_showing = booking.showing.id
+        original_tickets = booking.number_of_tickets
+        original_seats_remaining = booking.showing.seats_remaining
+
         form = BookingForm(request.POST, instance=booking)
+        
         if form.is_valid():
             form.save()
+
+            new_showing = request.POST.get("showing")
+            new_tickets = request.POST.get("number_of_tickets")
+            change_in_number_of_tickets_ordered = int(original_tickets) - int(new_tickets)
+
+            print(f"new showing id: {new_showing}")
+            print(f"original showing id: {original_showing}")
+
+            if int(new_showing) == int(original_showing):
+                # need to update the booking's showing's seats remaining field
+                print("hello")
+                print(booking.showing.seats_remaining)
+                print(change_in_number_of_tickets_ordered)
+                booking.showing.seats_remaining = booking.showing.seats_remaining + change_in_number_of_tickets_ordered
+                booking.showing.save()
+                print(booking.showing.seats_remaining)
+
+            else:
+                # need to update seats remaining for original showing and new showing
+                print("i am else")
+                original_showing_object = get_object_or_404(Showings, id=original_showing)
+                print(original_showing_object)
+                print(f"Original showing seats remaing: {original_showing_object.seats_remaining}")
+                print(f"Original tickets: {original_tickets}")
+                original_showing_object.seats_remaining = original_showing_object.seats_remaining + original_tickets
+                original_showing_object.save()
+                print(f"Original showing seats remaing after save: {original_showing_object.seats_remaining}")
+
+
+                new_showing_object = get_object_or_404(Showings, id=new_showing)
+                print(f"new showing object: {new_showing_object}")
+                print(f"new showing object seats remaining before: {new_showing_object.seats_remaining}")
+                new_showing_object.seats_remaining = new_showing_object.seats_remaining - int(new_tickets)
+                new_showing_object.save()
+                print(f"new showing object seats remaining after: {new_showing_object.seats_remaining}")
+
+                
+
+
             return redirect('home')
