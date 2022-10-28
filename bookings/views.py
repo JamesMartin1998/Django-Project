@@ -9,7 +9,8 @@ from .forms import BookingForm
 
 # Create your views here.
 
-
+# allows the user to load the home page
+# if they are authenticated, and have made bookgings, they can be seen in a table
 class ManageBookings(View):
     def get(self, request):
         # conditional fixes 'AnonymousUser' object is not iterable
@@ -24,7 +25,9 @@ class ManageBookings(View):
         else:
             return render(request, 'index.html')
 
-
+""" 
+renders all of the movies from the database
+"""
 def get_movies(request):
     movies = Movies.objects.all()
     context = {
@@ -32,7 +35,9 @@ def get_movies(request):
     }
     return render(request, 'movies.html', context)
 
-
+"""
+renders all of the movie details to the user
+"""
 def movie_detail(request, slug):
     if request.method == "GET":
         movies = Movies.objects.all()
@@ -45,6 +50,7 @@ def movie_detail(request, slug):
 #     movies = Movies.objects.all()
 
 
+# renders all of the showings for a particular movie
 class Shows(View):
 
     def get(self, request, slug):
@@ -56,7 +62,7 @@ class Shows(View):
         }
         return render(request, "book.html", context)
 
-
+# allows users to load a form for booking a particular movie showing
 class MakeOrder(View):
     def get(self, request, slug, id):
         movie = Movies.objects.get(slug=slug)
@@ -70,23 +76,28 @@ class MakeOrder(View):
         return render(request, "order.html", context)
 
     def post(self, request, slug, id):
+        # allows the user to make a booking
         user = request.user
         movie = Movies.objects.get(slug=slug)
         showing = get_object_or_404(Showings, id=id)
         tickets = request.POST.get("tickets")
 
         showing.seats_remaining = showing.seats_remaining-int(tickets)
+        # users can only make a booking if they choose a number of tickets that doesn't exceed the remaining number of seats
         if showing.seats_remaining >= 0:
             Bookings.objects.create(user=user, movie=movie, showing=showing, number_of_tickets=tickets)
             showing.save()
             messages.success(request, "Tickets Ordered Successfully!")
             return redirect('home')
+        # users receive an error message to inform them that they need to reduce the number of tickets
+        # the form is reloaded so users can attempt to book again
         else:
             messages.error(request, "Not enough seats remaining to book tickets. Please reduce your number of tickets and try again.")
             # Code from tutor, John, at Code Institute
             return redirect(reverse('order', args=[slug, id]))
 
-
+# Allows users to load a template containing a form with their current booking data
+# Users can edit their showing and number of tickets
 class EditBooking(View):
 
     def get(self, request, id):
@@ -128,7 +139,7 @@ class EditBooking(View):
         return render(request, 'edit-booking.html', context)
 
     def post(self, request, id):
-
+        # gets the user and their current booking data
         user = request.user
         bookings = Bookings.objects.filter(user=user)
         booking = get_object_or_404(bookings, id=id)
@@ -137,11 +148,13 @@ class EditBooking(View):
         original_tickets = booking.number_of_tickets
         original_seats_remaining = booking.showing.seats_remaining
 
+        # loads a form with the current booking data
         form = BookingForm(request.POST, instance=booking)
         
         if form.is_valid():
             form.save()
 
+            # gets data about the new booking entered by the user
             new_showing = request.POST.get("showing")
             new_tickets = request.POST.get("number_of_tickets")
             change_in_number_of_tickets_ordered = int(original_tickets) - int(new_tickets)
@@ -149,8 +162,9 @@ class EditBooking(View):
             print(f"new showing id: {new_showing}")
             print(f"original showing id: {original_showing}")
 
+            # if the user decides keep the same showing but change the number of tickets
+            # updates the number of seats remaining for the showing in the booking
             if int(new_showing) == int(original_showing):
-                # need to update the booking's showing's seats remaining field
                 print("hello")
                 print(booking.showing.seats_remaining)
                 print(change_in_number_of_tickets_ordered)
@@ -158,8 +172,10 @@ class EditBooking(View):
                 booking.showing.save()
                 print(booking.showing.seats_remaining)
 
+            # if the user decides to change the movie showing, with option to change the number of tickets
+            # updates the number of seats remaining for the original showing as well as the new showing
             else:
-                # need to update seats remaining for original showing and new showing
+                # block updates the number of seats remaining for the original showing
                 print("i am else")
                 original_showing_object = get_object_or_404(Showings, id=original_showing)
                 print(original_showing_object)
@@ -169,15 +185,12 @@ class EditBooking(View):
                 original_showing_object.save()
                 print(f"Original showing seats remaing after save: {original_showing_object.seats_remaining}")
 
-
+                # block updates the number of seats remaining for the new showing
                 new_showing_object = get_object_or_404(Showings, id=new_showing)
                 print(f"new showing object: {new_showing_object}")
                 print(f"new showing object seats remaining before: {new_showing_object.seats_remaining}")
                 new_showing_object.seats_remaining = new_showing_object.seats_remaining - int(new_tickets)
                 new_showing_object.save()
                 print(f"new showing object seats remaining after: {new_showing_object.seats_remaining}")
-
-                
-
 
             return redirect('home')
