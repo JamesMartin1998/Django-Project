@@ -83,18 +83,32 @@ class MakeOrder(View):
         tickets = request.POST.get("tickets")
 
         showing.seats_remaining = showing.seats_remaining-int(tickets)
-        # users can only make a booking if they choose a number of tickets that doesn't exceed the remaining number of seats
-        if showing.seats_remaining >= 0:
-            Bookings.objects.create(user=user, movie=movie, showing=showing, number_of_tickets=tickets)
-            showing.save()
-            messages.success(request, "Tickets Ordered Successfully!")
-            return redirect('home')
-        # users receive an error message to inform them that they need to reduce the number of tickets
-        # the form is reloaded so users can attempt to book again
-        else:
-            messages.error(request, "Not enough seats remaining to book tickets. Please reduce your number of tickets and try again.")
-            # Code from tutor, John, at Code Institute
+
+        if int(tickets) == 0:
+            messages.error(request, "You can't make a booking with zero tickets. Please increase the number of tickets and try again.")
             return redirect(reverse('order', args=[slug, id]))
+
+        elif int(tickets) < 0:
+            messages.error(request, "You can't have a negative number of tickets. Please increase the number of tickets and try again.")
+            return redirect(reverse('order', args=[slug, id]))
+
+        elif int(tickets) > 8:
+            messages.error(request, "Maximum number of tickets is 8. Please increase the number of tickets and try again.")
+            return redirect(reverse('order', args=[slug, id]))
+
+        else:
+            # users can only make a booking if they choose a number of tickets that doesn't exceed the remaining number of seats
+            if showing.seats_remaining >= 0:
+                Bookings.objects.create(user=user, movie=movie, showing=showing, number_of_tickets=tickets)
+                showing.save()
+                messages.success(request, "Tickets Ordered Successfully!")
+                return redirect('home')
+            # users receive an error message to inform them that they need to reduce the number of tickets
+            # the form is reloaded so users can attempt to book again
+            else:
+                messages.error(request, "Not enough seats remaining to book tickets. Please reduce your number of tickets and try again.")
+                # Code from tutor, John, at Code Institute
+                return redirect(reverse('order', args=[slug, id]))
 
 # Allows users to load a template containing a form with their current booking data
 # Users can edit their showing and number of tickets
