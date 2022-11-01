@@ -6,6 +6,9 @@ from django.template import loader
 from django.contrib.auth.models import User
 from django.contrib import messages
 from .forms import BookingForm
+# Line 10/11 imports from https://coderbook.com/@marcus/how-to-restrict-access-with-django-permissions/
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import TemplateView
 
 # Create your views here.
 
@@ -63,7 +66,9 @@ class Shows(View):
         return render(request, "book.html", context)
 
 # allows users to load a form for booking a particular movie showing
-class MakeOrder(View):
+# subclasses restrict bookings to only be made by logged in users
+# Subclasses from https://coderbook.com/@marcus/how-to-restrict-access-with-django-permissions/
+class MakeOrder(LoginRequiredMixin, TemplateView):
     def get(self, request, slug, id):
         movie = Movies.objects.get(slug=slug)
         showing = get_object_or_404(Showings, id=id)
