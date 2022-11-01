@@ -23,7 +23,7 @@ class Showings(models.Model):
     ticket_price = models.IntegerField()
 
     def __str__(self):
-        return f"{self.movie.title} on {self.day_shown} at {self.time_shown}"
+        return f"{self.movie.title} ({self.location}) on {self.day_shown} at {self.time_shown}"
 
 
 class Bookings(models.Model):

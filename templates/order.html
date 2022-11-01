@@ -2,18 +2,33 @@
 
 {% block content %}
 
-<h1>Order for {{ movie.title }}:</h1>
+<div>
+    <h1 class="center-title">{{ movie.title }} ({{showing.location }}) at {{ showing.time_shown }} on {{ showing.day_shown }}</h1>
+</div>
+
+
+<div class="d-flex justify-content-center align-items-center">
+    <div class="movie-showcase-div col-sm-10 col-md-8 col-lg-6" >
+        <img src="{{ movie.featured_image.url }}" alt="{{ movie.title }} Image">
+    </div>
+</div>
+
+<p class="d-flex justify-content-center align-items-center">
+    <span><strong>Ticket Price: </strong><span> £{{ showing.ticket_price }}
+</p>
+
+
+<div class="d-flex justify-content-center align-items-center mb-3">
     <form method="POST" action="">
         {% csrf_token %}
-
-        <label for="tickets">Number of Tickets:</label>
+    
+        <label for="tickets"><strong>Number of Tickets (Max. 8):</strong></label>
         <input type="number" id="tickets" name="tickets">
-
-        <div>
-            <p>
-                <button type="submit">Order</button>
-            </p>
-        </div>
+    
+        <button type="submit">Order</button>
+            
     </form>
+</div>
+
 
 {% endblock %}
