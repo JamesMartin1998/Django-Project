@@ -29,24 +29,24 @@
     <section class="mt-3">
         <div class="d-flex justify-content-center">
             <div>
-                <h2>Your Active Bookings</h2>
+                <h2 style="text-align: center;">Your Active Bookings</h2>
                 <table class="active-bookings">
                     <tr>
                         <th>Movie</th>
-                        <th>Tickets</th>
-                        <th>Date</th>
-                        <th>Time</th>
-                        <th></th>
-                        <th></th>
+                        <th class="disappear">Tickets</th>
+                        <th class="disappear">Date</th>
+                        <th class="disappear">Time</th>
+                        <th class="btn-column"></th>
+                        <th class="btn-column"></th>
                     </tr>
                     {% for booking in bookings %}
                     <tr>
                         <td>{{ booking.movie.title }}</td>
-                        <td>{{ booking.number_of_tickets }}</td>
-                        <td>{{ booking.showing.day_shown }}</td>
-                        <td>{{ booking.showing.time_shown }}</td>
-                        <td><a href="{% url 'edit-booking' id=booking.id %}"><button>Edit Booking</button></a></td>
-                        <td><a href="{% url 'delete-booking' id=booking.id %}"><button>Delete Booking</button></a></td>
+                        <td class="disappear">{{ booking.number_of_tickets }}</td>
+                        <td class="disappear">{{ booking.showing.day_shown }}</td>
+                        <td class="disappear">{{ booking.showing.time_shown }}</td>
+                        <td class="btn-column"><a href="{% url 'edit-booking' id=booking.id %}"><button class="small-btn">Edit</button></a></td>
+                        <td class="btn-column"><a href="{% url 'delete-booking' id=booking.id %}"><button class="small-btn">Cancel</button></a></td>
                     </tr>
                     {% endfor %}
                 </table>

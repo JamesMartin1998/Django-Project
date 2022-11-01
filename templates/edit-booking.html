@@ -2,13 +2,31 @@
 
 {% block content %}
 
-<h1><span id="edit-movie-title">{{ booking.movie.title }}</span></h1>
+<div>
+    <h1 class="center-title"><span id="edit-movie-title">{{ booking.movie.title }}</span></h1>
+</div>
+
+<div class="d-flex justify-content-center align-items-center">
+    <div class="movie-showcase-div col-sm-10 col-md-8 col-lg-6" >
+        <img src="{{ booking.movie.featured_image.url }}" alt="{{ movie.title }} Image">
+    </div>
+</div>
 
 <form method="POST" action="">
     {% csrf_token %}
     {{form}}
     <input type="submit">
 </form>
+
+
+
+
+
+
+
+
+
+
 
 <script>
     // Checks the movie title for the existing showing. Removes showing options for other movies

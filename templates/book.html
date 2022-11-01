@@ -36,7 +36,7 @@
             <td>{{ showing.time_shown }}</td>
             <td>{{ showing.seats_remaining }}</td>
             <td>{{ showing.ticket_price }}</td>
-            <td><a href="{% url 'order' slug=movie.slug id=showing.id %}"><button>Book</button></a></td>
+            <td><a href="{% url 'order' slug=movie.slug id=showing.id %}"><button class="small-btn">Book</button></a></td>
         </tr>
         {% endfor %}
     </table>
