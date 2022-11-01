@@ -171,6 +171,7 @@ class EditBooking(View):
                 booking.showing.seats_remaining = booking.showing.seats_remaining + change_in_number_of_tickets_ordered
                 booking.showing.save()
                 print(booking.showing.seats_remaining)
+                messages.success(request, "Your booking has been edited successfully")
 
             # if the user decides to change the movie showing, with option to change the number of tickets
             # updates the number of seats remaining for the original showing as well as the new showing
@@ -192,7 +193,7 @@ class EditBooking(View):
                 new_showing_object.seats_remaining = new_showing_object.seats_remaining - int(new_tickets)
                 new_showing_object.save()
                 print(f"new showing object seats remaining after: {new_showing_object.seats_remaining}")
-
+                messages.success(request, "Your booking has been edited successfully")
             return redirect('home')
 
 
@@ -218,4 +219,5 @@ def delete_booking(request, id):
     booking.delete()
     booking.showing.seats_remaining = original_seats + tickets
     booking.showing.save()
+    messages.success(request, "Your booking has been cancelled successfully")
     return redirect('home')
