@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {{ booking.movie.title }}
+    <h1>Booking Cancellation</h1>
+    <p>Are you sure you want to cancel your booking?</p>
+    <a href="/delete-booking/{{ booking.id }}">
+        <button>Delete Booking</button>
+    </a>
+{% endblock %}

@@ -37,6 +37,7 @@
                         <th>Date</th>
                         <th>Time</th>
                         <th></th>
+                        <th></th>
                     </tr>
                     {% for booking in bookings %}
                     <tr>
@@ -45,6 +46,7 @@
                         <td>{{ booking.showing.day_shown }}</td>
                         <td>{{ booking.showing.time_shown }}</td>
                         <td><a href="{% url 'edit-booking' id=booking.id %}"><button>Edit Booking</button></a></td>
+                        <td><a href="{% url 'delete-booking' id=booking.id %}"><button>Delete Booking</button></a></td>
                     </tr>
                     {% endfor %}
                 </table>

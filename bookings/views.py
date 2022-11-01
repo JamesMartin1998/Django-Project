@@ -175,7 +175,7 @@ class EditBooking(View):
             # if the user decides to change the movie showing, with option to change the number of tickets
             # updates the number of seats remaining for the original showing as well as the new showing
             else:
-                # block updates the number of seats remaining for the original showing
+                # this block updates the number of seats remaining for the original showing
                 print("i am else")
                 original_showing_object = get_object_or_404(Showings, id=original_showing)
                 print(original_showing_object)
@@ -185,7 +185,7 @@ class EditBooking(View):
                 original_showing_object.save()
                 print(f"Original showing seats remaing after save: {original_showing_object.seats_remaining}")
 
-                # block updates the number of seats remaining for the new showing
+                # this block updates the number of seats remaining for the new showing
                 new_showing_object = get_object_or_404(Showings, id=new_showing)
                 print(f"new showing object: {new_showing_object}")
                 print(f"new showing object seats remaining before: {new_showing_object.seats_remaining}")
@@ -194,3 +194,14 @@ class EditBooking(View):
                 print(f"new showing object seats remaining after: {new_showing_object.seats_remaining}")
 
             return redirect('home')
+
+
+# Loads the delete booking confirmation page
+def delete_booking_page(request, id):
+    user = request.user
+    bookings = Bookings.objects.filter(user=user)
+    booking = get_object_or_404(bookings, id=id)
+    context = {'booking': booking}
+
+    return render(request, 'delete-booking.html', context)
+
