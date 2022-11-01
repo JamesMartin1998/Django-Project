@@ -205,3 +205,17 @@ def delete_booking_page(request, id):
 
     return render(request, 'delete-booking.html', context)
 
+
+# deletes the booking from the database and returns the user to the home page
+# corrects the number of seats remaining for the showing
+def delete_booking(request, id):
+    user = request.user
+    bookings = Bookings.objects.filter(user=user)
+    booking = get_object_or_404(bookings, id=id)
+    showing = booking.showing
+    original_seats = booking.showing.seats_remaining
+    tickets = booking.number_of_tickets
+    booking.delete()
+    booking.showing.seats_remaining = original_seats + tickets
+    booking.showing.save()
+    return redirect('home')
