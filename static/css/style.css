@@ -306,3 +306,15 @@ body {
     display: block;
 }
 }
+
+/* Order Page */
+.order-label {
+    margin-right: 1rem;
+}
+
+@media only screen and (max-width: 600px) {
+    .to-flex-col {
+        flex-direction: column !important;
+    }
+}
+

@@ -17,16 +17,25 @@
     <span><strong>Ticket Price: </strong><span> £{{ showing.ticket_price }}
 </p>
 
+<p class="d-flex justify-content-center align-items-center">
+    <span><strong>Seats Remaining: </strong><span> {{ showing.seats_remaining }}
+</p>
+
 
 <div class="d-flex justify-content-center align-items-center mb-3">
     <form method="POST" action="">
         {% csrf_token %}
-    
-        <label for="tickets"><strong>Number of Tickets (Max. 8):</strong></label>
-        <input type="number" id="tickets" name="tickets">
-    
-        <button class="small-btn" type="submit">Order</button>
-            
+        
+        <div class="d-flex flex-row to-flex-col">
+            <div class="d-flex justify-content-center">
+                <label class="order-label" for="tickets"><strong>Number of Tickets (Max. 8):</strong></label>
+            </div>
+            <div>
+                <input type="number" id="tickets" name="tickets">
+                <button class="small-btn" type="submit">Order</button>
+            </div>
+        </div>
+
     </form>
 </div>
 
