@@ -171,8 +171,6 @@ class EditBooking(View):
         form = BookingForm(request.POST, instance=booking)
         
         if form.is_valid():
-            form.save()
-
             # gets data about the new booking entered by the user
             new_showing = request.POST.get("showing")
             new_tickets = request.POST.get("number_of_tickets")
@@ -181,39 +179,54 @@ class EditBooking(View):
             print(f"new showing id: {new_showing}")
             print(f"original showing id: {original_showing}")
 
-            # if the user decides keep the same showing but change the number of tickets
-            # updates the number of seats remaining for the showing in the booking
-            if int(new_showing) == int(original_showing):
-                print("hello")
-                print(booking.showing.seats_remaining)
-                print(change_in_number_of_tickets_ordered)
-                booking.showing.seats_remaining = booking.showing.seats_remaining + change_in_number_of_tickets_ordered
-                booking.showing.save()
-                print(booking.showing.seats_remaining)
-                messages.success(request, "Your booking has been edited successfully")
+            if int(new_tickets) == 0:
+                messages.error(request, "You can't make a booking with zero tickets. Please increase the number of tickets and try again.")
+                return redirect(reverse('edit-booking', args=[id]))
 
-            # if the user decides to change the movie showing, with option to change the number of tickets
-            # updates the number of seats remaining for the original showing as well as the new showing
+            elif int(new_tickets) < 0:
+                messages.error(request, "You can't have a negative number of tickets. Please increase the number of tickets and try again.")
+                return redirect(reverse('edit-booking', args=[id]))
+
+            elif int(new_tickets) > 8:
+                messages.error(request, "Maximum number of tickets is 8. Please increase the number of tickets and try again.")
+                return redirect(reverse('edit-booking', args=[id]))
+
             else:
-                # this block updates the number of seats remaining for the original showing
-                print("i am else")
-                original_showing_object = get_object_or_404(Showings, id=original_showing)
-                print(original_showing_object)
-                print(f"Original showing seats remaing: {original_showing_object.seats_remaining}")
-                print(f"Original tickets: {original_tickets}")
-                original_showing_object.seats_remaining = original_showing_object.seats_remaining + original_tickets
-                original_showing_object.save()
-                print(f"Original showing seats remaing after save: {original_showing_object.seats_remaining}")
+                # if the user decides keep the same showing but change the number of tickets
+                # updates the number of seats remaining for the showing in the booking
+                form.save()
 
-                # this block updates the number of seats remaining for the new showing
-                new_showing_object = get_object_or_404(Showings, id=new_showing)
-                print(f"new showing object: {new_showing_object}")
-                print(f"new showing object seats remaining before: {new_showing_object.seats_remaining}")
-                new_showing_object.seats_remaining = new_showing_object.seats_remaining - int(new_tickets)
-                new_showing_object.save()
-                print(f"new showing object seats remaining after: {new_showing_object.seats_remaining}")
-                messages.success(request, "Your booking has been edited successfully")
-            return redirect('home')
+                if int(new_showing) == int(original_showing):
+                    print("hello")
+                    print(booking.showing.seats_remaining)
+                    print(change_in_number_of_tickets_ordered)
+                    booking.showing.seats_remaining = booking.showing.seats_remaining + change_in_number_of_tickets_ordered
+                    booking.showing.save()
+                    print(booking.showing.seats_remaining)
+                    messages.success(request, "Your booking has been edited successfully")
+
+                # if the user decides to change the movie showing, with option to change the number of tickets
+                # updates the number of seats remaining for the original showing as well as the new showing
+                else:
+                    # this block updates the number of seats remaining for the original showing
+                    print("i am else")
+                    original_showing_object = get_object_or_404(Showings, id=original_showing)
+                    print(original_showing_object)
+                    print(f"Original showing seats remaing: {original_showing_object.seats_remaining}")
+                    print(f"Original tickets: {original_tickets}")
+                    original_showing_object.seats_remaining = original_showing_object.seats_remaining + original_tickets
+                    original_showing_object.save()
+                    print(f"Original showing seats remaing after save: {original_showing_object.seats_remaining}")
+
+                    # this block updates the number of seats remaining for the new showing
+                    new_showing_object = get_object_or_404(Showings, id=new_showing)
+                    print(f"new showing object: {new_showing_object}")
+                    print(f"new showing object seats remaining before: {new_showing_object.seats_remaining}")
+                    new_showing_object.seats_remaining = new_showing_object.seats_remaining - int(new_tickets)
+                    new_showing_object.save()
+                    print(f"new showing object seats remaining after: {new_showing_object.seats_remaining}")
+                    messages.success(request, "Your booking has been edited successfully")
+                return redirect('home')
 
 
 # Loads the delete booking confirmation page
