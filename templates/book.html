@@ -17,25 +17,28 @@
     </h2>
 </div>
 
+<p class="ticket-price appear"><span><strong>Ticket Price: </strong></span>£10</p>
+<p class="ticket-price-print appear">Please pay upon collection.</p>
+
 <div class="d-flex justify-content-center">
     <table class="showings-table">
         <tr>
-            <th>Movie</th>
+            <th class="disappear">Movie</th>
             <th>Location</th>
             <th>Date</th>
             <th>Time</th>
-            <th>Seats Remaining</th>
-            <th>Ticket Price</th>
+            <th class="disappear">Seats Remaining</th>
+            <th class="disappear">Ticket Price</th>
             <th></th>
         </tr>
         {% for showing in showings %}
         <tr>
-            <td>{{ movie.title }}</td>
+            <td class="disappear">{{ movie.title }}</td>
             <td>{{ showing.location }}</td>
             <td>{{ showing.day_shown }}</td>
             <td>{{ showing.time_shown }}</td>
-            <td>{{ showing.seats_remaining }}</td>
-            <td>{{ showing.ticket_price }}</td>
+            <td class="disappear">{{ showing.seats_remaining }}</td>
+            <td class="disappear">{{ showing.ticket_price }}</td>
             <td><a href="{% url 'order' slug=movie.slug id=showing.id %}"><button class="small-btn">Book</button></a></td>
         </tr>
         {% endfor %}
