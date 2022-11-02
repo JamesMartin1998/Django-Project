@@ -21,8 +21,14 @@ class ManageBookings(View):
         if request.user.is_authenticated:
             user = request.user
             bookings = Bookings.objects.filter(user=user)
+            movies = Movies.objects.all()
+            spiderman = get_object_or_404(movies, slug='spiderman')
 
-            context = {'bookings': bookings}
+            context = {
+                'bookings': bookings,
+                'movies': movies,
+                'spiderman': spiderman
+            }
 
             return render(request, 'index.html', context)
         else:
