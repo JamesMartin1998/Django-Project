@@ -318,3 +318,11 @@ body {
     }
 }
 
+/* Find a Cinema Page */
+/* Code for the Google Map API from Code Institute's Bootstrap Resume Project */
+
+div#map {
+    min-height: 500px;
+    margin-top: 1rem;
+}
+

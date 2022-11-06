@@ -259,3 +259,7 @@ def delete_booking(request, id):
     booking.showing.save()
     messages.success(request, "Your booking has been cancelled successfully")
     return redirect('home')
+
+
+def find_a_cinema(request):
+    return render(request, 'find-a-cinema.html')

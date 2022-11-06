@@ -36,7 +36,7 @@
                     <a class="nav-link" href="{% url 'movies' %}">Movies</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Find a Cinema</a>
+                    <a class="nav-link" href="{% url 'find-a-cinema' %}">Find a Cinema</a>
                 </li>
                 {% if user.is_authenticated %}
                 <li class="nav-item">
