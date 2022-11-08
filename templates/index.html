@@ -14,13 +14,11 @@
             <li class="slide" data-active>
                 <img src="{{ spiderman.featured_image.url }}" alt="Spider man image">
             </li>
+            {% for movie in movies_not_spiderman %}
             <li class="slide">
-                <img src="../static/images/find a cinema.png" alt="Man in cinema eating popcorn">
+                <img src="{{ movie.featured_image.url }}" alt="{{ movie.title }} Image">
             </li>
-            <li class="slide">
-                <img src="https://cdn.mos.cms.futurecdn.net/aTK8YBkBAbqCSzNGxt8adL-1200-80.jpg.webp" alt="Ironman image">
-            </li>
-            
+            {% endfor %}
         </ul>
     </div>
 </section>

@@ -24,15 +24,30 @@ class ManageBookings(View):
             movies = Movies.objects.all()
             spiderman = get_object_or_404(movies, slug='spiderman')
 
+            # code from https://stackoverflow.com/questions/687295/how-do-i-do-a-not-equal-in-django-queryset-filtering
+            movies_not_spiderman = Movies.objects.exclude(slug='spiderman').filter()
+
             context = {
                 'bookings': bookings,
                 'movies': movies,
-                'spiderman': spiderman
+                'spiderman': spiderman,
+                'movies_not_spiderman': movies_not_spiderman
             }
 
             return render(request, 'index.html', context)
         else:
-            return render(request, 'index.html')
+            movies = Movies.objects.all()
+            spiderman = get_object_or_404(movies, slug='spiderman')
+
+            # code from https://stackoverflow.com/questions/687295/how-do-i-do-a-not-equal-in-django-queryset-filtering
+            movies_not_spiderman = Movies.objects.exclude(slug='spiderman').filter()
+
+            context = {
+                'movies': movies,
+                'spiderman': spiderman,
+                'movies_not_spiderman': movies_not_spiderman
+            }
+            return render(request, 'index.html', context)
 
 """ 
 renders all of the movies from the database
