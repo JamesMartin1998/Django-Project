@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Movies, Showings, Bookings
+from .models import Movies, Showings, Bookings, Reviews
 
 # admin.site.register(Movies)
 
@@ -14,6 +14,8 @@ admin.site.register(Showings)
 
 
 admin.site.register(Bookings)
+
+admin.site.register(Reviews)
 
 
 

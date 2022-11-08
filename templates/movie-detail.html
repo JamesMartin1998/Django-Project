@@ -21,6 +21,41 @@
     <div class="d-flex justify-content-center align-items-center">
         <a href="{% url 'shows' slug=movie.slug %}"><button class="custom-btn">Book Ticket</button></a>
     </div> 
+
+    <!-- Code for Reviews from https://www.youtube.com/watch?v=hZrlh4qU4eQ and https://www.youtube.com/watch?v=OuOB9ADT_bo -->
+    <div class="reviews-container">
+        <hr>
+        <h2>Reviews</h2>
+        <br/>
+
+        <div class="review-list-div">
+            {% if not movie.reviews.all %}
+                There are no reviews for this movie at the moment.
+            {% else %}
+                {% for review in movie.reviews.all %}
+                    <strong>
+                        {{ review.name }} -
+                        {{ review.date_added }}
+                    </strong>
+                    <br/>
+                    {{ review.body }}
+                    <br/><br/>
+                {% endfor %}
+                <hr>
+            {% endif %}
+        </div>
+
+        <div class="make-review-div">
+            <h3>Add Review</h3>
+            <form method="POST" action="">
+                {% csrf_token %}
+                <label for="review">Your Review</label>
+                <textarea name="review" id="review" cols="30" rows="10"></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+        
+    </div>
         
     
 {% endblock %}

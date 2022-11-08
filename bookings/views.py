@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.http import HttpResponse
 from django.views import generic, View
-from .models import Movies, Showings, Bookings
+from .models import Movies, Showings, Bookings, Reviews
 from django.template import loader
 from django.contrib.auth.models import User
 from django.contrib import messages
@@ -53,6 +53,17 @@ def movie_detail(request, slug):
         movie = get_object_or_404(movies, slug=slug)
         context = {'movie': movie}
         return render(request, "movie-detail.html", context)
+
+    elif request.method == "POST":
+        user = request.user
+        movies = Movies.objects.all()
+        movie = get_object_or_404(movies, slug=slug)
+        context = {'movie': movie}
+        body = request.POST.get("review")
+        Reviews.objects.create(name=user, movie=movie, body=body)
+        return render(request, "movie-detail.html", context)
+
+
 
 
 # def get_movie_detail(request):
