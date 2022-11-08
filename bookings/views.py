@@ -5,7 +5,7 @@ from .models import Movies, Showings, Bookings, Reviews
 from django.template import loader
 from django.contrib.auth.models import User
 from django.contrib import messages
-from .forms import BookingForm
+from .forms import BookingForm, ReviewForm
 # Line 10/11 imports from https://coderbook.com/@marcus/how-to-restrict-access-with-django-permissions/
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import TemplateView
@@ -51,20 +51,39 @@ def movie_detail(request, slug):
     if request.method == "GET":
         movies = Movies.objects.all()
         movie = get_object_or_404(movies, slug=slug)
-        context = {'movie': movie}
+        reviews = movie.reviews.filter().order_by('date_added')
+        context = {
+            'movie': movie,
+            'reviews': reviews,
+            'review_form': ReviewForm()
+            }
         return render(request, "movie-detail.html", context)
 
+    # Reviews adapts on Comment code from Code Institute's Django Blog Project
     elif request.method == "POST":
-        user = request.user
         movies = Movies.objects.all()
         movie = get_object_or_404(movies, slug=slug)
-        context = {'movie': movie}
-        body = request.POST.get("review")
-        Reviews.objects.create(name=user, movie=movie, body=body)
+        reviews = movie.reviews.filter().order_by('date_added')
+
+        review_form = ReviewForm(data=request.POST)
+
+        if review_form.is_valid():
+            review_form.instance.name = request.user.username
+            review = review_form.save(commit=False)
+            review.movie = movie
+            review.save()
+        else:
+            review_form = ReviewForm()
+
+        context = {
+            'movie': movie,
+            'reviews': reviews,
+            'review_form': ReviewForm()
+            }
+
         return render(request, "movie-detail.html", context)
 
-
-
+        
 
 # def get_movie_detail(request):
 #     movies = Movies.objects.all()
