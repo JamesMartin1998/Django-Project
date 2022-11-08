@@ -12,21 +12,11 @@
     </div>
 </div>
 
-<form method="POST" action="">
+<form id="edit-booking-form" method="POST" action="">
     {% csrf_token %}
     {{form}}
-    <input type="submit">
+    <button class="small-btn" type="submit">Submit</button>
 </form>
-
-
-
-
-
-
-
-
-
-
 
 <script>
     // Checks the movie title for the existing showing. Removes showing options for other movies

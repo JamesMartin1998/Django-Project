@@ -342,3 +342,63 @@ div#map {
     margin-top: 1rem;
 }
 
+/* Edit Booking Form */
+
+#edit-booking-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#edit-booking-form label {
+    width:40%;
+    margin: 0 30% 0 30%;
+    text-align: center;
+    font-weight: 600;
+}
+
+#edit-booking-form input {
+    width: 6%;
+    margin: 0 47% 1rem 47%;
+}
+
+#id_showing {
+    width: 30%;
+    margin: 0 35% 1rem 35%;
+}
+
+#id_number_of_tickets {
+    width: 20%;
+}
+
+#edit-booking-form button {
+    width: 6%;
+    margin: 0 47% 1rem 47%;
+}
+
+@media only screen and (max-width: 1200px) {
+    #edit-booking-form label {
+        width:80%;
+        margin: 0 10% 0 10%;
+        text-align: center;
+    }
+    
+    #edit-booking-form input {
+        width: 20%;
+        margin: 0 40% 1rem 40%;
+    }
+    
+    #id_showing {
+        width: 80%;
+        margin: 0 10% 1rem 10%;
+    }
+    
+    #id_number_of_tickets {
+        width: 20%;
+    }
+    
+    #edit-booking-form button {
+        width: 24%;
+        margin: 0 38% 1rem 38%;
+    }
+}
