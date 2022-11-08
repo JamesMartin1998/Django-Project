@@ -36,6 +36,12 @@ class Bookings(models.Model):
         return f"{self.user.first_name} {self.user.last_name} for {self.movie.title} on {self.showing.day_shown} at {self.showing.time_shown}"
 
 
+# Reviews class code from https://www.youtube.com/watch?v=hZrlh4qU4eQ
+class Reviews(models.Model):
+    movie = models.ForeignKey(Movies, related_name="reviews", on_delete=models.CASCADE)
+    name = models.CharField(max_length=200)
+    body = models.TextField()
+    date_added = models.DateTimeField(auto_now_add=True)
 
-
-# Create your models here.
+    def __str__(self):
+        return '%s - %s' % (self.movie.title, self.name)
