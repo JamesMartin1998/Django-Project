@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'cloudinary',
+    'crispy_forms',
     'bookings',
 ]
 
@@ -69,6 +70,9 @@ SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
 
 LOGOUT_REDIRECT_URL = '/'
+
+# crispy forms installed following Code Institute's Django Blog Project
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # messages installed using code from Code Institute's Django Blog Project
 MESSAGE_TAGS = {
