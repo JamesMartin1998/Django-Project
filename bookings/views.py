@@ -138,6 +138,10 @@ class MakeOrder(LoginRequiredMixin, TemplateView):
         showing = get_object_or_404(Showings, id=id)
         tickets = request.POST.get("tickets")
 
+        if tickets == "":
+            messages.error(request, "Please enter a number of tickets.")
+            return redirect(reverse('order', args=[slug, id]))
+
         showing.seats_remaining = showing.seats_remaining-int(tickets)
 
         if int(tickets) == 0:
