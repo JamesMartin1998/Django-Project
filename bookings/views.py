@@ -18,6 +18,7 @@ class ManageBookings(View):
     def get(self, request):
         # conditional fixes 'AnonymousUser' object is not iterable
         # https://stackoverflow.com/questions/43544366/anonymoususer-object-is-not-iterable-django
+        # this conditional will render the active showings only for logged in users
         if request.user.is_authenticated:
             user = request.user
             bookings = Bookings.objects.filter(user=user)
@@ -230,7 +231,7 @@ class EditBooking(View):
             new_showing = request.POST.get("showing")
             new_tickets = request.POST.get("number_of_tickets")
             change_in_number_of_tickets_ordered = int(original_tickets) - int(new_tickets)
-
+            print(f"Change: {change_in_number_of_tickets_ordered}")
             print(f"new showing id: {new_showing}")
             print(f"original showing id: {original_showing}")
 
@@ -245,7 +246,10 @@ class EditBooking(View):
             elif int(new_tickets) > 8:
                 messages.error(request, "Maximum number of tickets is 8. Please increase the number of tickets and try again.")
                 return redirect(reverse('edit-booking', args=[id]))
-
+            # Added this elif to fix an error where users could update their number of tickets to a higher number than the number of seats remaining for the showing
+            elif (change_in_number_of_tickets_ordered*-1) > original_seats_remaining:
+                messages.error(request, "Not enough seats remaining. Please reduce your number of tickets.")
+                return redirect(reverse('edit-booking', args=[id]))
             else:
                 # if the user decides keep the same showing but change the number of tickets
                 # updates the number of seats remaining for the showing in the booking
