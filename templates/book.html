@@ -2,6 +2,7 @@
 
 {% block content %}
 
+<!-- Movie Title and Image -->
 <div>
     <h1 class="center-title">{{ movie.title }}</h1>
 </div>
@@ -11,6 +12,8 @@
         <img src="{{ movie.featured_image.url }}" alt="{{ movie.title }} Image">
     </div>
 </div>
+
+<!-- Showings Section -->
 <div>
     <h2 class="center-title">
         Next Available Showings
@@ -20,6 +23,7 @@
 <p class="ticket-price appear"><span><strong>Ticket Price: </strong></span>£10</p>
 <p class="ticket-price-print appear">Please pay upon collection.</p>
 
+<!-- Table has a row for each showing for the particular movie -->
 <div class="d-flex justify-content-center">
     <table class="showings-table">
         <tr>

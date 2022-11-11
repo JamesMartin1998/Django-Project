@@ -2,6 +2,7 @@
 
 {% block content %}
 
+<!-- Movie title and Image -->
 <div>
     <h1 class="center-title"><span id="edit-movie-title">{{ booking.movie.title }}</span></h1>
 </div>
@@ -11,6 +12,8 @@
         <img src="{{ booking.movie.featured_image.url }}" alt="{{ movie.title }} Image">
     </div>
 </div>
+
+<!-- Edit Booking Form -->
 
 <form id="edit-booking-form" method="POST" action="">
     {% csrf_token %}

@@ -3,6 +3,7 @@
 
 {% block content %}
 
+    <!-- Google Map -->
     <div>
         <h1 class="center-title">Find a Cinema</h1>
     </div>
@@ -10,6 +11,8 @@
     <div id="map">
 
     </div>
+
+    <!-- Scripts -->
     <script src="{% static 'js/maps.js' %}"></script>
     <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD52U1hWtdqyRpVOINw2UjaV4xmya33vYk&callback=initMap"></script>

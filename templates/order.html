@@ -2,6 +2,7 @@
 
 {% block content %}
 
+<!-- Showing and Movie Image -->
 <div>
     <h1 class="center-title">{{ movie.title }} ({{showing.location }}) at {{ showing.time_shown }} on {{ showing.day_shown }}</h1>
 </div>
@@ -21,7 +22,7 @@
     <span><strong>Seats Remaining: </strong><span> {{ showing.seats_remaining }}
 </p>
 
-
+<!-- Booking Form -->
 <div class="d-flex justify-content-center align-items-center mb-3">
     <form method="POST" action="">
         {% csrf_token %}

@@ -2,15 +2,20 @@
 {% load static %}
 
 {% block content %}
-<!-- Code for carousel from https://www.youtube.com/watch?v=9HcxHDS2w1s -->
+<!-- 
+    Carousel Section
+    Code for carousel from https://www.youtube.com/watch?v=9HcxHDS2w1s
+ -->
 <section aria-label="Latest Movies">
     <div class="carousel" data-carousel>
+        <!-- Buttons to change the image -->
         <button class="carousel-button prev" data-carousel-button="prev">
             <i class="fa-solid fa-arrow-left"></i>
         </button>
         <button class="carousel-button next" data-carousel-button="next">
             <i class="fa-solid fa-arrow-right"></i>
         </button>
+        <!-- Images - "data-active" defines the image to be displayed upon loading the page -->
         <ul data-slides>
             <li class="slide" data-active>
                 <img src="{{ spiderman.featured_image.url }}" alt="Spider man image">
@@ -23,12 +28,18 @@
         </ul>
     </div>
 </section>
+
+<!-- 
+    Active Bookings Section 
+    Only renders for users that have logged in and made a booking
+-->
 {% if user.is_authenticated %}
     {% if bookings|length >= 1 %}
     <section class="mt-3">
         <div class="d-flex justify-content-center">
             <div>
                 <h2 style="text-align: center;">Your Active Bookings</h2>
+                <!-- A row in the table will be created for each booking a user makes -->
                 <table class="active-bookings">
                     <tr>
                         <th>Movie</th>
