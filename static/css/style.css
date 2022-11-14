@@ -189,6 +189,12 @@ body {
     margin: 2rem 0 0 0;
 }
 
+.movie-desc {
+    width:80%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
 .movie-showcase-div {
     margin: 1rem 0 1rem 0;
     display: flex;

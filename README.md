@@ -104,8 +104,26 @@ Like the 'Sign Up' page, the aim of the 'Login' page was to provide a simple, at
 - Due to the nature of the table being difficult to display on smaller devices, some less important booking details will become hidden to the user to allow the page to be responsive. Bookings can still be identified as sufficient information is kept visible for the uesr and if the user wishes to find all of the details of their booking, they can do so by clicking the 'Edit' button and viewing the details on the 'Edit Booking' page.
 
 ![Image showing active bookings](./static/images/active-bookings.png)
+(Large device - Active Bookings)
 
-![Image showing active bookings on mobile device](./static/images/active-bookings-mobile.png)
+![Image showing active bookings on mobile device](./static/images/active-bookings-mobile.png) <br />
+(Mobile - Active Bookings)
 
 ### Footer
+
+- This section aims to promote users to find out more about the cinema through social media, as well as provide the user with information about the cinema opening times and contact email.
+- This section follows the same design theme as the navigation bar for consistency.
+- Social links are included as icons from FontAwesome.
+- When clicked, the links open in a new tab for a good user experience.
+- On larger devices, the three sections are horizontal, but the navbar is also responsive and adopts a vertical layout on smaller devices.
+- Code for this section was used from Code Institute's Love Running Project.
+
+![Image showing footer](./static/images/footer.png)
+(Large device - Footer)
+
+![Image showing footer on medium-sized device](./static/images/footer-medium-device.png) <br />
+(Medium device - Footer)
+
+![Image showing footer on mobile device](./static/images/footer-mobile.png) <br />
+(Large device - Footer)
 
