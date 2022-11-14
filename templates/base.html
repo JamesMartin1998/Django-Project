@@ -32,7 +32,7 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
+            <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
                     <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
                 </li>
@@ -67,8 +67,8 @@
     Messages will appear under the Nav bar through absolute positioning relative to the body
     Messages installed using code from Code Institute's Django Blog Project 
 -->
-    <div class="container message-container">
-        <div class="row">
+    <div class="container-fluid message-container">
+        <div class="row g-0">
             <div class="col-md-8 offset-md-2">
                 {% for message in messages %}
                 <div class="alert {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">

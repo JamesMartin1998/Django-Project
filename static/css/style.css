@@ -1,4 +1,22 @@
 /* Home Page */
+
+/* Navbar */
+
+nav > a {
+    margin-left: 5%;
+}
+
+.navbar-toggler {
+    margin-right: 5%;
+}
+
+@media only screen and (max-width: 767.5px) {
+    .nav-item {
+    margin-left: 5%;
+}
+}
+
+
 /* Carousel */
 /* Code for carousel from https://www.youtube.com/watch?v=9HcxHDS2w1s */
 
