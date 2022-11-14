@@ -127,3 +127,77 @@ Like the 'Sign Up' page, the aim of the 'Login' page was to provide a simple, at
 ![Image showing footer on mobile device](./static/images/footer-mobile.png) <br />
 (Large device - Footer)
 
+### Movies
+
+- Acts as a catelogue for users to browse through the current movies being shown at the cinema.
+- The title at the top of the page, 'What's On?', makes it clear to the user that this page is showing the movies available to see at the cinema at the moment.
+- Each movie has an image link and title link which will direct the user to a new page showing the details of the particular movie.
+- Title links have a bold hover effect to inform the user that they are clickable links.
+- On large devices, the movies are arranged as a grid, three columns wide. This grid reduces to two wide on medium devices and to a singular column on mobile devices. This responsive design enables movie images to be seen clearly on all devices; improving the user experience.
+
+![Image showing movies page](./static/images/movies-page.png)
+(Large device - Movies Page)
+
+![Image showing movies page on medium device](./static/images/movies-page-medium-device.png) <br />
+(Medium device - Movies Page)
+
+![Image showing movies page on medium device](./static/images/movies-page-mobile.png) <br />
+(Mobile device - Movies Page)
+
+### Movie Detail
+
+- Acts to provide the user with more information about a particular movie previously selected.
+- Title and movie image clearly show the movie that this page is representing.
+- A movie description is shown to explain the basic plot of the film do users can learn a little more about the movie before booking a ticket.
+- Run time also shown for the user.
+- A clear, red button, consistent with other buttons on the website, is labeled 'Book'. When clicked, users are redirected to a page showing the available showings for this movie. The white hover effect reinforces that the button is clickable.
+
+![Image showing movie detail](./static/images/movie-detail.png)
+
+### Reviews
+
+- Allows users to read and make reviews about the selected movie.
+- The review section is separated from the rest of the page with a horizontal rule. This clearly defines the sections to the user whilst keeping the reviews on the same page is its core information.
+- The 'Make a Review' title and form are only displayed and made available for logged in users. This is due to the reviews requiring a username.
+- The form body acts as an area for users to write their reviews.
+- A clear, red button, consistent with other buttons on the website, is labeled 'Submit'. When clicked, the user's review will be posted.
+- The ability of being able to make a review makes the website more appealing to users that want to share their opinions.
+- All users, including logged out users, are able to read the reviews made by other users. This enables users to learn more about the movie before deciding to book a ticket. This additional feature may act as an advantage over rival cinemas that don't include this feature.
+- The reviews stack vertically in a column. Information about the review, such as the author, date and time are displayed in bold, with the review underneath. Collectively a clear, pleasant layout for the reviews is created.
+- Having reviews creates a greater community on the website, perhaps encouraging more user interaction and returning customers.
+
+![Image showing reviews](./static/images/reviews.png)
+
+- Reviews section adapts on the Comment code from Code Institute's Django Blog project.
+
+### Showings
+
+- Allows users to see the available showings for the selected movie.
+- Title and movie image clearly show the movie that this page is representing.
+- 'Next Availble Showings' title clearly informs the user that subsequent information is about the movie's showings.
+- Small paragraph explains to users that they can book their tickets online, however will pay when the collect the tickets in person at the cinema. This helps the user avoid confusion over the ticket purchasing process.
+- Each available showing is displayed in its own row in a table.
+- The table headings are bold and the columns have margin so that the information for each column is clear to the user. Users are able to see their booking: 'Movie', 'Location', 'Date', 'Time', 'Seats remaining' and 'Ticket Price'.
+- The information shown about each showing allows users to make a choice based on their circumstances and preferences. For example, users can search for a showing at their closest cinema, at their favoured date and time. Users are also able to see if there are enough seats remaining for their attending party and whether the price is satisfactory before clicking on a showing to book. This therefore provides a beneficial user experience.
+- Due to the table being difficult to show on smaller devices. The page acts responsively to maximise its use of space by hiding the 'Movie' column as it is clear that the showings are for the selected movie with the title and image above. In addition, the ticket price is consistent for all showings of a particular movie so this column is hidden and the information is provided above the table. The seats remaining information is also becomes hidden but is made available by being displayed on the next page.
+- Each movie showing row has its own 'Book' button. By clicking this button, the user can select a showing and will be redirected to page where they can select their number of tickets are confirm their booking. This is consistent with other buttons on the website, reinforcing the theme. The white hover effect, again, shows that the button is clickable.
+
+![Image showing movie showings](./static/images/showings.png)
+(Large device - Showings Page)
+
+![Image showing movie showings on mobile device](./static/images/showings-mobile.png) <br />
+(Mobile device - Showings Page)
+
+### Order
+
+- The order page allows users to finalise their booking by selecting the number of tickets to add to their booking and confirming all of the booking details.
+- The title clearly shows the important details about the movie, location, date and time. This allows the user to check their booking before ordering.
+- The image shows the movie selected and continues the theme of the pages in the booking process.
+- The remaining booking information uses bold titles to make the details eye-catching to the user.
+- The seats remaining information allows users on mobile devices to check if there are enough seats for their party before booking. This is important as mobile users were not able to see this information on the previous page.
+- Users are able to select the number of tickets they want to include in their order. Tickets are capped at 8 per booking to prevent people for booking the whole cinema.
+- Users are also prevented from inputting 0 tickets, strings, a negative number of tickets, floats and more tickets than available seats remaining.
+- If users attempt to submit an invalid form, they will receive an error message, explaining the problem and the page will reload.
+- The 'Order' button is consistent with other buttons on the website. When clicked, the user will receive a success message, confirming their order and is redirected to the home page. Users will see their booking in the 'Active Bookings' section.
+
+![Image showing order page](./static/images/order.png)

@@ -182,6 +182,10 @@ body {
     color: black;
 }
 
+.movie-title-link:hover {
+    font-weight: 900;
+}
+
 /* Movie Details Page */
 
 .center-title {
