@@ -12,32 +12,100 @@ During the planning stage of this product, I thought about the functionality I w
 
 ### Home Page
 
-![Image showing wireframe of homepage](./static/images/homepage%20wireframe.png)
+![Image showing wireframe of homepage](./static/images/homepage-wireframe-logged-in.png)
 
 For the home page, I aimed to provide users with a simple layout, which would immediately represent itself as a cinema website. Consequently, I included a clear brand logo and movie carousel. Navbar links are also intuitive.
 
-![Image showing wireframe of homepage logged in](./static/images/homepage%20wireframe%20logged%20in.png)
+![Image showing wireframe of homepage logged in](./static/images/homepage-wireframe-logged-in.png)
 
 I wanted users to also be able to access their booking details from the homepage for a better user experience. Thus I aimed to include a section below the carousel to display booking details to logged in users.
 
 ### Movies Page
 
-![Image showing wireframe of movies page](./static/images/movies%20wireframe.png)
+![Image showing wireframe of movies page](./static/images/movies-wireframe.png)
 
-For the 'Movies' page, the aim for to simply display all of the movies on at the cinema, in an organised layout. Users are able to click the image or text links to find out more about the particular movie.
+For the 'Movies' page, the aim for to simply display all of the movies on at the cinema, in an organised layout. Users are able to click the image or text links to find out more about the particular movie. I later decided to add a review section to the 'Movies' page.
 
-![Image showing wireframe of booking page](./static/images/booking%20page%20wireframe.png)
+### Booking Page
 
-When planning the project, I was wondering about the best way to implement the functionality for users to make bookings for a movie. The plan for this page, to allow users to select a date, cinema, time and seat was quite ambitious due to its dynamic nature. I later separated the booking functionality into two pages. Firstly, one where users could select a defined showing (for a particular movie, at a date and specific time, at a specific cinema.) Secondly, a page where users could select the number of seats for their booking. This method proved to be a more realistic, yet still user friendly approach to providing the functionality.
+![Image showing wireframe of booking page](./static/images/booking-page-wireframe.png)
 
-![Image showing wireframe of find a cinema page](./static/images/find%20a%20cinema%20wireframe.png)
+When planning the project, I was wondering about the best way to implement the functionality for users to make bookings for a movie. The plan for this page, to allow users to select a date, cinema, time and seat was quite ambitious due to its dynamic nature. I later separated the booking functionality into two pages. Firstly, one where users could select a defined showing (for a particular movie, at a date and specific time, at a specific cinema.) Secondly, a page where users could select the number of seats for their booking. This method proved to be a more realistic, yet still user friendly approach to providing the functionality. I also made separate pages for editing and deleting bookings.
+
+### Find a Cinema Page
+
+![Image showing wireframe of find a cinema page](./static/images/find-a-cinema-wireframe.png)
 
 For the 'Find a Cinema' page, the aim was to show users the different locations of 'Cinema Planet' cinemas in an appealing way, using the Google Maps API.
 
-![Image showing wireframe of sign up page](./static/images/sign%20up%20page%20wireframe.png)
+### Sign Up Page
+
+![Image showing wireframe of sign up page](./static/images/sign-up-page-wireframe.png)
 
 For the 'Sign Up' page, the aim was to provide a simple, attractive form for users to register for an account.
 
-![Image showing wireframe of sign in page](./static/images/log%20in%20wireframe.png)
+### Sign In Page
+
+![Image showing wireframe of sign in page](./static/images/log-in-wireframe.png)
 
 Like the 'Sign Up' page, the aim of the 'Login' page was to provide a simple, attractive form for users to log into their accounts. I later remembered that users would need a 'Sign Out' page, so I implemented one similarly to these two pages.
+
+## Features
+
+### Navigation
+
+- Displays the title of the website / name of the website to the user.
+- A clear 'Open Sans' font is used to make the title and links easily visible for the user.
+- The dark grey background and white font color create contrast to also aid visibility.
+- Allows users to navigate between the different pages on the site.
+- Hovering over the navbar links will cause a lightening effect to show that the elements are clickable.
+- On smaller devices, a hamburger button appears and when clicked opens a drop-down of the navbar links in a vertical list. This prevents the navbar from taking up unnecessary space when not in use, on smaller devices.
+- When users are logged out, they will see links to 'Sign Up' and 'Login'. Logged in users will instead see a 'Logout link'. This dynamic navbar provides users with access to the appropriate functionality for their circumstances, as well as indicates to them their login state.
+- Created using bootstrap for a simple, responsive design.
+
+![Image showing navbar](./static/images/navbar.png)
+(Large device navbar - logged out)
+
+![Image showing navbar](./static/images/navbar.png)
+(Large device navbar - logged in)
+
+![Image showing navbar](./static/images/navbar-mobile.png) <br />
+(Small device navbar - Closed)
+
+![Image showing navbar open](./static/images/navbar%20open.png) <br />
+(Small device navbar - Open)
+
+- Navbar code from https://getbootstrap.com/docs/5.2/components/navbar/
+
+### Home Page Carousel
+
+- This carousel section allows users to cycle thorugh images of the movies currently being shown at the cinema.
+- Constributes to forming a modern, attractive landing page.
+- Occupies the majority of the page to allow users to clearly see the type of website instantly upon loading the website.
+- Regular customers can instantly know if the latest movies are being shown at the cinema by cycling through the carousel.
+- Buttons used to allow the user to click and cycle left and right continuously through the loop of movies.
+
+![Image showing movie carousel](./static/images/movie-carousel.png)
+- JavaScript was used to provide the carousel functionality
+- Carousel code from https://www.youtube.com/watch?v=9HcxHDS2w1s
+- Buttons from FontAwesome
+
+### Home Page Active Bookings
+
+- This section only appears for users that are logged in, that have already made a booking. If a user isn't logged in, or has no active bookings, the section will not be displayed.
+- By being located on the home page, users can easily find their booking information, and thus receive a convenient user experience.
+- The title clearly shows users what the section is showing.
+- When a user makes a new booking, the details of the booking appear as a new row in the table under the heading.
+- The table headings are bold and the columns have margin so that the information for each column is clear to the user. Users are able to see their booking: 'Movie', 'Tickets', 'Date' and 'Time'.
+- Users are able to have multiple bookings, new bookings append as new rows at the bottom of the table; allowing for users to easily see all of their bookings in a list format.
+- Each booking has its own 'Edit' button. Clicking will redirect the user to a new page where they can edit the details of their booking.
+- Each booking has its own 'Cancel' button. Clicking will redirect the user to a new page where they can confirm their cancellation.
+- 'Edit' and 'Cancel' buttons appear red to stand out easily to the user. A white hover effect makes it obvious to the user that the buttons are clickable.
+- Due to the nature of the table being difficult to display on smaller devices, some less important booking details will become hidden to the user to allow the page to be responsive. Bookings can still be identified as sufficient information is kept visible for the uesr and if the user wishes to find all of the details of their booking, they can do so by clicking the 'Edit' button and viewing the details on the 'Edit Booking' page.
+
+![Image showing active bookings](./static/images/active-bookings.png)
+
+![Image showing active bookings on mobile device](./static/images/active-bookings-mobile.png)
+
+### Footer
+
