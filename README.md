@@ -309,9 +309,21 @@ During the planning stage of the project, I produced a list of user stories. Fur
 
 ## Manual Testing
 
+For this Django project, extensive manual testing was performed.
+
 ### High Level Test Cases
 
 ![Image showing test cases part 1](./static/images/test-cases-1.png)
 ![Image showing test cases part 2](./static/images/test-cases-2.png)
 ![Image showing test cases part 3](./static/images/test-cases-3.png)
+
+Mapped to user stories:
+
+![Image showing user stories mapped to test cases](./static/images/user-stories-mapped.png)
+
+### High Level Test Case Results
+
+![Image showing test cases results](./static/images/test-case-results.png)
+
+
 
