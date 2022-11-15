@@ -50,6 +50,12 @@ For the 'Sign Up' page, the aim was to provide a simple, attractive form for use
 
 Like the 'Sign Up' page, the aim of the 'Login' page was to provide a simple, attractive form for users to log into their accounts. I later remembered that users would need a 'Sign Out' page, so I implemented one similarly to these two pages.
 
+### User Story Planning
+
+During the planning stage of the project, I produced a list of user stories. Further into the project, I realised that there was a need for more functionailty and thus I added some more user stories during the development of the project. I also decided that although some user stories were valuable, they were not necessary to include, particularly when considering the scope of the project. For example, the account email confirmation wasn't necessary as messages were displayed to the user to inform them that their account was created, instead. An Agile tool, in the form of GitHub, was used to manage the planning and implementation of all significant functionality. Issues were created for each user story and these were mapped to the project. During development, these user stories were accessed on a Kanban board, where I could organise my workload by moving the user stories between the 'Todo', 'In Progress' and 'Done' columns.
+
+![Image showing user stoires](./static/images/user-stories.png)
+
 ## Features
 
 ### Navigation
@@ -180,7 +186,7 @@ Like the 'Sign Up' page, the aim of the 'Login' page was to provide a simple, at
 - The table headings are bold and the columns have margin so that the information for each column is clear to the user. Users are able to see their booking: 'Movie', 'Location', 'Date', 'Time', 'Seats remaining' and 'Ticket Price'.
 - The information shown about each showing allows users to make a choice based on their circumstances and preferences. For example, users can search for a showing at their closest cinema, at their favoured date and time. Users are also able to see if there are enough seats remaining for their attending party and whether the price is satisfactory before clicking on a showing to book. This therefore provides a beneficial user experience.
 - Due to the table being difficult to show on smaller devices. The page acts responsively to maximise its use of space by hiding the 'Movie' column as it is clear that the showings are for the selected movie with the title and image above. In addition, the ticket price is consistent for all showings of a particular movie so this column is hidden and the information is provided above the table. The seats remaining information is also becomes hidden but is made available by being displayed on the next page.
-- Each movie showing row has its own 'Book' button. By clicking this button, the user can select a showing and will be redirected to page where they can select their number of tickets are confirm their booking. This is consistent with other buttons on the website, reinforcing the theme. The white hover effect, again, shows that the button is clickable.
+- Each movie showing row has its own 'Book' button. By clicking this button, if the user is logged in, they can select a showing and will be redirected to page where they can select their number of tickets are confirm their booking. If the user is logged out, clicking the link will redirect the user to the 'Sign In' page; as only authenticated users are able to make bookings. This is consistent with other buttons on the website, reinforcing the theme. The white hover effect, again, shows that the button is clickable.
 
 ![Image showing movie showings](./static/images/showings.png)
 (Large device - Showings Page)
@@ -191,6 +197,7 @@ Like the 'Sign Up' page, the aim of the 'Login' page was to provide a simple, at
 ### Order
 
 - The order page allows users to finalise their booking by selecting the number of tickets to add to their booking and confirming all of the booking details.
+- Page can only be accessed by by logged in users.
 - The title clearly shows the important details about the movie, location, date and time. This allows the user to check their booking before ordering.
 - The image shows the movie selected and continues the theme of the pages in the booking process.
 - The remaining booking information uses bold titles to make the details eye-catching to the user.
@@ -201,3 +208,102 @@ Like the 'Sign Up' page, the aim of the 'Login' page was to provide a simple, at
 - The 'Order' button is consistent with other buttons on the website. When clicked, the user will receive a success message, confirming their order and is redirected to the home page. Users will see their booking in the 'Active Bookings' section.
 
 ![Image showing order page](./static/images/order.png)
+
+### Edit Booking
+ - Enables users to change the details of their bookings.
+ - Accessed by clicking the 'Edit' button, for a particular booking in the 'Active Bookings' section.
+ - The movie title and image is used to continue the consistent theme as throughout and clearly show the user the movie selected in their booking.
+ - Using the 'Showing' dropdown box, users are able to change their showing for the selected movie. This enables them to change to a more suitable location, date, time.
+ - Users are also able to input a new 'Number of Tickets'. This enables users to have flexibility over situations where additional people want to join there party, as well as if members need to cancel their ticket without canceling the whole group.
+ - The 'Number of Tickets' input, has the same valiadtion applied as the for the 'Order' form. Consequently users are unable to book tickets that are a higher amount than the remaining number of seats remaining for the showing, a negative number of tickets, more than eight tickets, 0 tickets, string values or float values. Attempting to submit the form with one of these invalid formats will result in an error message to explain the problem, and the page reloading.
+ - If the user decides to change the number of tickets for a booking, the number of seats remaining for the affected showing or showings will update correctly.
+ - Upon submission of a valid form by clicking the 'Submit' button, the user will receive a success message to inform them that their booking has updated successfully and they will be redirected to the home page. The user is then able to see their new booking details in the 'Active Bookings' section.
+
+![Image showing edit booking page](./static/images/edit.png)
+
+ - JavaScript was used to filter out showings for other movies than that in the original booking. This enables showings that only include the same movie as the original booking to be shown in the dropdown box.
+ - Code was recommended to me by my Korean developer friend, from this website: https://goodsgoods.tistory.com/249
+
+ ### Cancel Booking
+
+ - Enables users to easily cancel a booking.
+ - Accessed by clicking the 'Cancel' button, for a particular booking in the 'Active Bookings' section.
+ - The movie title and image is used to continue the consistent theme as throughout and clearly show the user the movie selected in their booking.
+ - Users are asked one last time to confirm their cancellation.
+ - The 'Delete Booking' button has a red background and white hover effect, consistent with the theme throughout the project.
+ - When the 'Delete Booking' button is clicked, the booking will be deleted and the user will receive a success message to explain that their booking has been deleted. They will then be redirected to the home page and their booking will be absent from the 'Active Bookings' section.
+ - Upon deletion, the 'Showing' from the 'Booking' will have its number of seats remaining updated correctly.
+ - This feature provides a good user experience as users can quickly cancel their booking without spending time emailing or calling with staff.
+
+![Image showing delete booking page](./static/images/delete.png)
+
+### Find a Cinema
+
+- Allows users to easily locate cinemas close to them visually.
+- Title inform the user that they can use the Google Map to locate cinemas.
+- The map fills the majority of the screen making it easily visible to users.
+- The map loads automatically with focus on the UK, as all cinemas are located here.
+- Upon loading, users can see one marker for Manchester and a cluster for Brighton and London, as they are close together. By clicking the cluster, the user can then see Brighton and London as individual markers.
+
+![Image showing find a cinema page](./static/images/find-a-cinema.png)
+
+- Implemented using the Google Maps API and JavaScript.
+- Code was used from Code Institute's Bootstrap Resume project.
+
+ ### Sign Up
+
+- Allows users to register for an account.
+- Clear title informs users that this page will allow them to sign up for an account.
+- The form is clearly laid out in the center of the page.
+- Paragraph provides a link to the 'Sign In' page in case user already have an account.
+- Users are required to input a username, password and password confirmation, whilst having the option to provide an email address. Form validation prevents users from submitting the form without filling these required fields.
+- The 'Sign Up' button is conistent with other buttons and is clearly visible and clickable.
+- By clicking the 'Sign Up' button, users will receive a success message to inform them that they have successfully logged in, and they are redirected to the home page.
+
+![Image showing sign up page](./static/images/sign-up.png)
+
+### Login
+
+- Allows users to sign into an account.
+- Clear title informs users that this page will allow them to sign into an account.
+- The form is clearly laid out in the center of the page.
+- Paragraph provides a link to the 'Sign Up' page in case user don't already have an account.
+- Users are required to input a username and password. Form validation prevents users from submitting the form without filling these required fields.
+- Users can check the 'Remember Me' box to make their signing in process more convenient in the future.
+- The 'Sign In' button is conistent with other buttons and is clearly visible and clickable.
+- By clicking the 'Sign In' button, users will receive a success message to inform them that they have successfully logged in, and they are redirected to the home page.
+
+![Image showing sign in page](./static/images/sign-in.png)
+
+### Logout
+
+- Allows users to sign out of an account instantly by clicking the 'Logout' button in the navbar.
+- Users receive a success message and are redirected to the home page.
+
+### Messages
+
+- Alert the user after success and error events.
+- Messages confirm to the user that an event has occurred successfully, and explain why an error has occurred.
+- Examples of success events include: a user logged into an account, completing a booking, deleting a booking, etc.
+- Error events arise when invalid data is submitted in forms and thus events can't be performed, e.g. trying to order more tickets than seats available.
+- Messages appear in the center of the sceen, under the Navbar so they can easily be located. 
+- A green background is used for success messages, whereas red is used for errors. This allows used to differentiate between them easily.
+- Messages disappear automatically after 2.5 seconds, or they can be closed by clicking the 'X' button in the top right corner, before.
+- Overall the feedback provided by messages enhances the user experience greatly.
+
+![Image showing success message](./static/images/success-message.png)
+(Success Message Example)
+
+![Image showing error message](./static/images/error-message.png)
+(Error Message Example)
+
+- Bootstrap alerts were used with JavaScript to create the messages.
+- Code was used from Code Institute's Django Blog project.
+
+### Admin Roles
+
+- Admins are able to create, read, update and delete movies, showings, bookings and reviews on the website via the Django admin site.
+- Admins are responsible for listing new movies when they are being shown at the cinema, as well as deleting them when they are no longer being shown.
+- Admins are responsible for listing the showings for each movie to keep the website up-to-date.
+- As the cinema website needs to evolve constantly to keep up-to-date with new movies and showings. The admin has a critically role in enabling this website's functionality.
+

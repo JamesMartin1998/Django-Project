@@ -1,10 +1,20 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    {{ booking.movie.title }}
-    <h1>Booking Cancellation</h1>
-    <p>Are you sure you want to cancel your booking?</p>
-    <a href="/delete/{{ booking.id }}">
-        <button>Delete Booking</button>
-    </a>
+    <div class="d-flex justify-content-center align-items-center">
+        <h1 class="center-title">{{ booking.movie.title }} Booking Cancellation</h1>
+    </div>
+    <div class="d-flex justify-content-center align-items-center">
+        <div class="movie-showcase-div col-sm-10 col-md-8 col-lg-6" >
+            <img src="{{ booking.movie.featured_image.url }}" alt="{{ movie.title }} Image">
+        </div>
+    </div>
+    <div class="d-flex justify-content-center align-items-center">
+        <p class="center-p">Are you sure you want to cancel your booking?</p>
+    </div>
+    <div class="d-flex justify-content-center align-items-center">
+        <a href="/delete/{{ booking.id }}">
+            <button class="small-btn">Delete Booking</button>
+        </a>
+    </div>
 {% endblock %}

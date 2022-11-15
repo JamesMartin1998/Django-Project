@@ -436,3 +436,10 @@ div#map {
         margin: 0 38% 1rem 38%;
     }
 }
+
+/* Delete Booking Page */
+
+.center-p {
+    text-align: center;
+    margin: 0 10% 0 10% 0;
+}
