@@ -48,7 +48,7 @@ For the 'Sign Up' page, the aim was to provide a simple, attractive form for use
 
 ![Image showing wireframe of sign in page](./static/images/log-in-wireframe.png)
 
-Like the 'Sign Up' page, the aim of the 'Login' page was to provide a simple, attractive form for users to log into their accounts. I later remembered that users would need a 'Sign Out' page, so I implemented one similarly to these two pages.
+Like the 'Sign Up' page, the aim of the 'Login' page was to provide a simple, attractive form for users to log into their accounts. Users don't need a 'Sign Out' page, as they can sign out by clicking the button on the navbar.
 
 ### User Story Planning
 
@@ -306,4 +306,12 @@ During the planning stage of the project, I produced a list of user stories. Fur
 - Admins are responsible for listing new movies when they are being shown at the cinema, as well as deleting them when they are no longer being shown.
 - Admins are responsible for listing the showings for each movie to keep the website up-to-date.
 - As the cinema website needs to evolve constantly to keep up-to-date with new movies and showings. The admin has a critically role in enabling this website's functionality.
+
+## Manual Testing
+
+### High Level Test Cases
+
+![Image showing test cases part 1](./static/images/test-cases-1.png)
+![Image showing test cases part 2](./static/images/test-cases-2.png)
+![Image showing test cases part 3](./static/images/test-cases-3.png)
 
