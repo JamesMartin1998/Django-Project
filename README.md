@@ -325,5 +325,7 @@ Mapped to user stories:
 
 ![Image showing test cases results](./static/images/test-case-results.png)
 
+Full Results can be found [here](django-project-testing.xlsx)
+
 
 
