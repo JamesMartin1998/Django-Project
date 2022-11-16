@@ -393,7 +393,37 @@ Tests performed at https://validator.w3.org/nu/
 
 ![Image showing Edit Booking jshint validation](./static/images/edit-booking-script-jshint.png)
 
+### PEP8 Validation
 
+Tests were performed at https://pep8ci.herokuapp.com/
+
+- admin.py - No errors
+
+![Image showing admin.py PEP8 validation](./static/images/admin-pep8.png)
+
+- forms.py - No errors
+
+![Image showing forms.py PEP8 validation](./static/images/forms-pep8.png)
+
+- models.py - No errors
+
+![Image showing forms.py PEP8 validation](./static/images/models-pep8.png)
+
+- bookings.urls.py - No errors
+
+![Image showing bookings.urls.py PEP8 validation](./static/images/booking-urls-pep8.png)
+
+- view.py - No errors
+
+![Image showing views.py PEP8 validation](./static/images/views-pep8.png)
+
+- cinemaplanet.urls - No errors
+
+![Image showing cinemaplanet urls PEP8 validation](./static/images/cinemaplanet-urls.png)
+
+- settings.py - No errors
+
+![Image showing settings.py PEP8 validation](./static/images/settings-pep8.png)
 
 
 

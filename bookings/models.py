@@ -4,6 +4,9 @@ from cloudinary.models import CloudinaryField
 
 
 class Movies(models.Model):
+    """
+    All fields for each movie
+    """
     title = models.CharField(max_length=200)
     slug = models.SlugField(max_length=200, unique=True)
     description = models.TextField()
@@ -15,6 +18,9 @@ class Movies(models.Model):
 
 
 class Showings(models.Model):
+    """
+    All fields for each showing, each movie can have multiple showings
+    """
     movie = models.ForeignKey(Movies, on_delete=models.CASCADE)
     location = models.CharField(max_length=200, default="London")
     day_shown = models.DateField()
@@ -23,22 +29,32 @@ class Showings(models.Model):
     ticket_price = models.IntegerField()
 
     def __str__(self):
-        return f"{self.movie.title} ({self.location}) on {self.day_shown} at {self.time_shown}"
+        return f"{self.movie.title} ({self.location}) on {self.day_shown} at \
+        {self.time_shown}"
 
 
 class Bookings(models.Model):
+    """
+    All fields for each booking
+    """
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     movie = models.ForeignKey(Movies, on_delete=models.CASCADE)
     showing = models.ForeignKey(Showings, on_delete=models.CASCADE)
     number_of_tickets = models.IntegerField()
 
     def __str__(self):
-        return f"{self.user.first_name} {self.user.last_name} for {self.movie.title} on {self.showing.day_shown} at {self.showing.time_shown}"
+        return f"{self.user.first_name} {self.user.last_name} for \
+            {self.movie.title} on {self.showing.day_shown} at \
+                {self.showing.time_shown}"
 
 
 # Reviews class code from https://www.youtube.com/watch?v=hZrlh4qU4eQ
 class Reviews(models.Model):
-    movie = models.ForeignKey(Movies, related_name="reviews", on_delete=models.CASCADE)
+    """
+    All fields for each review
+    """
+    movie = models.ForeignKey(Movies, related_name="reviews",
+                              on_delete=models.CASCADE)
     name = models.CharField(max_length=200)
     body = models.TextField()
     date_added = models.DateTimeField(auto_now_add=True)
