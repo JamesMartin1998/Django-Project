@@ -331,15 +331,45 @@ Full Results can be found [here](django-project-testing.xlsx)
 
 ### W3C HTML Validator
 
-- Home Page
+Tests performed at https://validator.w3.org/nu/
+
+- Home Page - No errors
 
 ![Image showing home page HTML validation](./static/images/homepage-w3c.png)
 
-- Movies Menu Page
+- Movies Menu Page - No errors
 
 ![Image showing Movies Menu page HTML validation](./static/images/movies-w3c.png)
 
-- 
+- Movie Details Page - No errors
+
+![Image showing Movie Details page HTML validation](./static/images/movie-detail-w3c.png)
+
+- Movie Showings Page - No errors
+
+![Image showing movie showings page HTML validation](./static/images/movie-showings-w3c.png)
+
+- Booking Order Page - No errors
+
+![Image showing find a cinema page HTML validation](./static/images/find-a-cinema-w3c.png)
+
+- Edit Booking Page - returns error on the form due to the jinja template being used to import the form
+
+![Image showing edit booking page HTML validation](./static/images)
+
+- Cancel Booking Page - No errors
+
+![Image showing cancel booking page HTML validation](./static/images/delete-w3c.png)
+
+- Sign Up Page - No errors
+
+![Image showing sign up page HTML validation](./static/images/sign-up-w3c.png)
+
+- Login Page - No errors
+
+![Image showing sign in page HTML validation](./static/images/login-w3c.png)
+
+
 
 
 
