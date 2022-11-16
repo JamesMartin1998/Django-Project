@@ -369,6 +369,33 @@ Tests performed at https://validator.w3.org/nu/
 
 ![Image showing sign in page HTML validation](./static/images/login-w3c.png)
 
+### W3C CSS Validator
+
+- style.css - No errors
+
+![Image showing style.css validation](./static/images/style.css-w3c.png)
+
+### JSHint
+
+- Messages JavaScript Code - No errors
+
+![Image showing messages jshint validation](./static/images/messages-jshint.png)
+
+- maps.js - No errors
+
+![Image showing maps.js jshint validation](./static/images/maps.js-jshint.png)
+
+- script.js - No errors
+
+![Image showing maps.js jshint validation](./static/images/script.js-jshint.png)
+
+- Edit Booking Script
+
+![Image showing Edit Booking jshint validation](./static/images/edit-booking-script-jshint.png)
+
+
+
+
 
 
 

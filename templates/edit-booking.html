@@ -27,7 +27,7 @@
     var movie_name = $('#edit-movie-title').text();
 
     var showingOptions = $("#id_showing").children();
-        for (option of showingOptions) {
+        for (let option of showingOptions) {
             if (option.text.includes(movie_name)) {
                 //pass
             } else {

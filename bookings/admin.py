@@ -1,8 +1,6 @@
 from django.contrib import admin
 from .models import Movies, Showings, Bookings, Reviews
 
-# admin.site.register(Movies)
-
 
 @admin.register(Movies)
 class MoviesAdmin(admin.ModelAdmin):
@@ -10,13 +8,17 @@ class MoviesAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
 
 
-admin.site.register(Showings)
+@admin.register(Showings)
+class ShowingsAdmin(admin.ModelAdmin):
+    list_display = ('movie', 'location', 'day_shown', 'time_shown',
+                             'seats_remaining', 'ticket_price')
 
 
-admin.site.register(Bookings)
+@admin.register(Bookings)
+class BookingsAdmin(admin.ModelAdmin):
+    list_display = ('user', 'movie', 'showing', 'number_of_tickets')
 
-admin.site.register(Reviews)
 
-
-
-# Register your models here.
+@admin.register(Reviews)
+class Reviews(admin.ModelAdmin):
+    list_display = ('movie', 'name', 'date_added')
