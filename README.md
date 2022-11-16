@@ -355,7 +355,7 @@ Tests performed at https://validator.w3.org/nu/
 
 - Edit Booking Page - returns error on the form due to the jinja template being used to import the form
 
-![Image showing edit booking page HTML validation](./static/images)
+![Image showing edit booking page HTML validation](./static/images/edit-w3c.png)
 
 - Cancel Booking Page - No errors
 
@@ -424,6 +424,42 @@ Tests were performed at https://pep8ci.herokuapp.com/
 - settings.py - No errors
 
 ![Image showing settings.py PEP8 validation](./static/images/settings-pep8.png)
+
+### Lighthouse Testing
+
+- Homepage
+
+![Image showing home page lighthouse test](./static/images/homepage-lighthouse.png)
+
+- Movies Page
+
+![Image showing movies page lighthouse test](./static/images/movies-page-lighthouse.png)
+
+- Movie Detail Page
+
+![Image showing movie detail page lighthouse test](./static/images/movie-detail-lighthouse.png)
+
+- Showings Page
+
+![Image showing showings page lighthouse test](./static/images/showings-lighthouse.png)
+
+- Order Page
+
+![Image showing order page lighthouse test](./static/images/order-lighthouse.png)
+
+- Find a Cinema Page
+
+![Image showing find a cinema page lighthouse test](./static/images/find-a-cinema-lighthouse.png)
+
+- Edit Booking Page
+
+![Image showing edit booking page lighthouse test](./static/images/edit-booking-lighthouse.png)
+
+- Delete Booking Page
+
+![Image showing delete booking page lighthouse test](./static/images/edit-booking-lighthouse.png)
+
+
 
 
 
