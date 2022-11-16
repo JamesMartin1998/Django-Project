@@ -327,5 +327,19 @@ Mapped to user stories:
 
 Full Results can be found [here](django-project-testing.xlsx)
 
+## Validator Testing
+
+### W3C HTML Validator
+
+- Home Page
+
+![Image showing home page HTML validation](./static/images/homepage-w3c.png)
+
+- Movies Menu Page
+
+![Image showing Movies Menu page HTML validation](./static/images/movies-w3c.png)
+
+- 
+
 
 

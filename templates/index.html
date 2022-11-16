@@ -55,8 +55,8 @@
                         <td class="disappear">{{ booking.number_of_tickets }}</td>
                         <td class="disappear">{{ booking.showing.day_shown }}</td>
                         <td class="disappear">{{ booking.showing.time_shown }}</td>
-                        <td class="btn-column"><a href="{% url 'edit-booking' id=booking.id %}"><button class="small-btn">Edit</button></a></td>
-                        <td class="btn-column"><a href="{% url 'delete-booking' id=booking.id %}"><button class="small-btn">Cancel</button></a></td>
+                        <td class="btn-column"><a href="{% url 'edit-booking' id=booking.id %}" class="small-btn">Edit</a></td>
+                        <td class="btn-column"><a href="{% url 'delete-booking' id=booking.id %}" class="small-btn">Cancel</a></td>
                     </tr>
                     {% endfor %}
                 </table>

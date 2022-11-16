@@ -230,6 +230,8 @@ body {
     font-weight: 600;
     border: 2px solid rgb(200 46 46);
     font-size: 1.2rem;
+    text-decoration: none;
+    text-align: center;
 }
 
 .custom-btn:hover {
@@ -332,6 +334,9 @@ body {
     color: white;
     border: 2px solid rgb(200 46 46);
     font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+    padding: 1px 6px;
 }
 
 .small-btn:hover {
