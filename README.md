@@ -54,6 +54,12 @@ Like the 'Sign Up' page, the aim of the 'Login' page was to provide a simple, at
 
 During the planning stage of the project, I produced a list of user stories. Further into the project, I realised that there was a need for more functionailty and thus I added some more user stories during the development of the project. I also decided that although some user stories were valuable, they were not necessary to include, particularly when considering the scope of the project. For example, the account email confirmation wasn't necessary as messages were displayed to the user to inform them that their account was created, instead. An Agile tool, in the form of GitHub, was used to manage the planning and implementation of all significant functionality. Issues were created for each user story and these were mapped to the project. During development, these user stories were accessed on a Kanban board, where I could organise my workload by moving the user stories between the 'Todo', 'In Progress' and 'Done' columns.
 
+### Database Model
+
+Whilst planning the project, I decided that I would need five database tables: Movies, Showings, Bookings, Reviews and Users. A relational database was used and the relationships are illustrated by the lines on the diagram below. The User model was used by installing Django-allauth.
+
+![Image showing database models](./static/images/models-diagram.png)
+
 ![Image showing user stoires](./static/images/user-stories.png)
 
 ## Features
@@ -457,12 +463,28 @@ Tests were performed at https://pep8ci.herokuapp.com/
 
 - Delete Booking Page
 
-![Image showing delete booking page lighthouse test](./static/images/edit-booking-lighthouse.png)
+![Image showing delete booking page lighthouse test](./static/images/delete-lighthouse.png)
+
+- Sign Up Page
+
+![Image showing sign up page lighthouse test](./static/images/sign-up-lighthouse.png)
+
+- Login Page
+
+![Image showing login page lighthouse test](./static/images/login-lighthouse.png)
 
 
+## Bugs
 
+### Solved Bugs
 
+- Updating the seats remaining for showings
+    - Initially when users tried to make or edit a booking, they could book successfully, however the showing in their booking wouldn't update the number of seats correctly. This effectively meant that despite have bookings, the show would always have 50 seats remaining. This bug was fixed by requesting the ticket number from the form when a user is booking and getting the showing's seats remaining. The tickets was then minused from the showing's seats remaining, and the showing was saved. 
 
+    - This bug was even more difficult to solve when edited a booking to change the showing. Initially, the bug caused the original showing and new showing in the booking to have seats occupied by the tickets in the booking. To solve this, the original showing had to have the number of tickets from the original booking added back onto the original showing's number of seats. Then, the new showing had have number of tickets in the new booking deducted from the new showing's number of seats remaining.
 
+- Reloading the order form after an invalid input
+    - When a form has an invalid data input, the order page should be reloaded with a new form. However, a bug was occuring because the order page requires slug and id inputs to access the URL. Tutor John, at Code Institute, recommended using the 'reverse' method in order to pass in the arguments required, e.g. return redirect(reverse('order', args=[slug, id])).
 
-
+- Users only being able to change their showing to one with the same movie
+    - When users tried to edit their booking, I wanted them to only be able to change the showing to another showing that has the same movie. However, when I tried to make a dropdown in the form for all of the showing options, showings for other movies also appeared. I solved this bug using a JQuery code that would remove the options from the dropdown if their text content didn't include the name of the current movie in the booking. This effectively filtered the showings to only include showings that show the same movie as the original showing in the booking.
