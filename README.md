@@ -555,3 +555,37 @@ The live site can be found here: https://cinema-planet.herokuapp.com/
         - os.environ['DATABASE_URL'] = *enter a database url*
         - os.environ['SECRET_KEY'] = *enter any secret key*
         - os.environ['CLOUDINARY_URL'] = *enter your cloudinary url*
+
+## Credits
+
+- Cloudinary was used to store all images on the website
+- Django was installed as the primary library for making this project
+- Django-allauth was installed to configure the authorisation/authentication
+- Django-crispy-forms was installed to make the reviews form
+- FontAwesome was used for the carousel buttons and social links
+- Bootstrap was installed for formatting the style of the website
+- Jquery was installed to make the code to filter the showing options in edit-booking.html. Code was recommended to me by my Korean developer friend from https://goodsgoods.tistory.com/249
+- Google Maps API used for the Find A Cinema page
+- ElephantSQL provided the Postgres server used to store data
+- Gitpod was used as an IDE
+- GitHub was used to store the project's code in a repository
+- Heroku was used for deployment
+- Wireframes produced at Balsamiq
+- Models diagram produced at app.diagrams.net
+- Carousel code from WebDevSimplified (https://www.youtube.com/watch?v=9HcxHDS2w1s)
+- Movies used include: Spiderman, Batman, Iron Man, Wonder Woman, Superman and Captain America
+- Movie images from:
+    - Spiderman: https://uk.pcmag.com/pc-games/141627/can-your-pc-run-spider-man-remastered
+    - Batman: https://image.api.playstation.com/vulcan/img/rnd/202010/2621/H9v5o8vP6RKkQtR77LIGrGDE.png
+    - Iron Man: https://cdn.flickeringmyth.com/wp-content/uploads/2022/08/Invincible-Iron-Man-2022-1.jpg
+    - Wonder Woman: https://images.wallpapersden.com/image/download/wonder-woman-x-injustice-2_bGZuZ2qUmZqaraWkpJRmbmdlrWZlbWVnZWdmaW4.jpg
+    - Superman: https://wallpapers.com/wallpapers/top-collection-of-superman-wallpaper-pack-v-19-hybniuoz706ip1bf.html
+    - Captain America: https://www.wallpaperbetter.com/en/hd-wallpaper-tstcx/download/1920x1080d
+- Movie Descriptions from IMDB
+- Messages installed using Bootstrap alerts, code from Code Institute's Django Blog Project
+- Social links use code from Code Institute's Love Running Project
+- Reviews section uses code from the comments section of Code Institute's Django Blog project
+- Google Maps installed using code from Code Institute's Bootstrap Resume project
+- Thanks to tutor John, at Code Institute for helping to solve the bug prevented forms reloading after invalid submissions
+- Thanks to my mentor, Ronan, for his guidance on the project
+
