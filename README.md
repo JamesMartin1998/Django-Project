@@ -488,3 +488,70 @@ Tests were performed at https://pep8ci.herokuapp.com/
 
 - Users only being able to change their showing to one with the same movie
     - When users tried to edit their booking, I wanted them to only be able to change the showing to another showing that has the same movie. However, when I tried to make a dropdown in the form for all of the showing options, showings for other movies also appeared. I solved this bug using a JQuery code that would remove the options from the dropdown if their text content didn't include the name of the current movie in the booking. This effectively filtered the showings to only include showings that show the same movie as the original showing in the booking.
+
+### Unsolved Bugs
+
+- There are no remaining known bugs.
+## Database
+
+- A Postgres database has been used for this project, provided by ElephantSQL.
+
+The database url was stored in a config var: 'DATABASE_URL' on Heroku. This variable was then used in the settings.py to connect to the database.
+
+Initially a Postres database was used from Heroku. The models were migrated to the database by entering the following commands in the the gitpod terminal:
+- python3 manage.py makemigrations
+- python3 manage.py migrate
+
+Eventually, the data was migrated to a new Postgres database, provided by ElephantSQL. The Heroku Postgres add-on was removed from the project and I then created a new database on the ElephantSQL website. Data was migrated using Code Institute's 'Postgres Migration Tool' (found at the GitHub repository: https://github.com/Code-Institute-Org/postgres-migration-tool). Data was migrated by the following gitpod terminal commands:
+- python3 reel2reel.py
+- pasting the old Heroku database URL
+- pasting the new ElephantSQL URL
+Finally, I made a new config var for the project on the Heroku site; having a value of the new ElephantSQL URL.
+
+## Deployment
+
+### Heroku
+
+During the development of the project, version control was used by committing and pushing the code to GitHub. The GitHub repository can be found here: https://github.com/JamesMartin1998/Django-Project
+
+This project was deployed to Heroku by:
+Within Gitpod, adding the dependencies to the requirements file by typing 'pip3 freeze > requirements.txt' in the terminal.
+Committing and pushing the code to GitHub.
+On the Heroku website, clicking 'Create New App'.
+Setting the name and region and pressing 'Create App'.
+Clicking the 'Settings' tab.
+Setting config vars for the keys: CLOUDINARY_URL, DATABASE_URL, PORT and SECRET_KEY.
+Clicking 'Add Buildpack', 'Python', 'Save Changes'.
+Click the 'Deploy' tab.
+Click 'Connect to GitHub', search for repository, click 'Connect'.
+Enable Manual Deploy. Check for successful message.
+Enable Automatic Deploys.
+The live site can be found here: https://cinema-planet.herokuapp.com/
+
+### Run Locally
+- Manually Downloading the Repository:
+
+    - Opening the project repository at: https://github.com/JamesMartin1998/Django-Project.
+    - Opening the dropdown on the 'code' button.
+    - Downloading the zip file.
+    - Extracting the files from the zip file into a new folder on your computer.
+    - Opening the folder in an IDE of your choice.
+    - Type "pip install requirements.txt".
+    - creating an env.py file, importing os and creating the following variables:
+        - os.environ['DATABASE_URL'] = *enter a database url*
+        - os.environ['SECRET_KEY'] = *enter any secret key*
+        - os.environ['CLOUDINARY_URL'] = *enter your cloudinary url*
+
+- Cloning the Repository:
+
+    - Opening the project repository at: https://github.com/JamesMartin1998/Django-Project.
+    - Opening the dropdown on the 'code' button.
+    - Copying the link under the HTTPS heading (https://github.com/JamesMartin1998/Django-Project.git).
+    - Opening an IDE of your choice (must have Git support or relevant git extension).
+    - Open the terminal and create a directory to store the repository.
+    - Type "git clone https://github.com/JamesMartin1998/Django-Project.git" and press enter in the terminal.
+    - Type "pip install requirements.txt".
+    - creating an env.py file, importing os and creating the following variables:
+        - os.environ['DATABASE_URL'] = *enter a database url*
+        - os.environ['SECRET_KEY'] = *enter any secret key*
+        - os.environ['CLOUDINARY_URL'] = *enter your cloudinary url*
