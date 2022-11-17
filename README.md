@@ -315,6 +315,11 @@ Whilst planning the project, I decided that I would need five database tables: M
 
 ## Manual Testing
 
+- The website has been tested and works on different browsers: Chrome, Samsung Internet, Microsoft Edge.
+- All text can be seen clearly and isn't disrupted by another element.
+- All links and buttons can be clicked and provide their expected results.
+- All pages are responsive on all standard screen sizes and functions correctly.
+
 For this Django project, extensive manual testing was performed.
 
 ### High Level Test Cases
@@ -492,6 +497,14 @@ Tests were performed at https://pep8ci.herokuapp.com/
 ### Unsolved Bugs
 
 - There are no remaining known bugs.
+
+## Future Features
+
+- Semi-Automatic Showing Listings
+    - Currently site admin's can create a new movie when being shown at the cinema, using the Django admin site. They also have to add the individual showings for each movie on the django admin site. In the future, I would like to implement code that code get the time of a showing and then create another showing for the same movie but a week later. This would make be useful to the business as they could have a fixed weekly schedule and would have to list fewer showings so would save time.
+- Ecommerce - Shopping basket
+    - Currently users can only reserve tickets and pick them up when they go the cinema. In the future, I would like to implement a shopping cart, where users can select their booking to order and then pay online using a service such as PayPal.
+
 ## Database
 
 - A Postgres database has been used for this project, provided by ElephantSQL.
@@ -568,7 +581,7 @@ The live site can be found here: https://cinema-planet.herokuapp.com/
 - Google Maps API used for the Find A Cinema page
 - ElephantSQL provided the Postgres server used to store data
 - Gitpod was used as an IDE
-- GitHub was used to store the project's code in a repository
+- GitHub was used to store the project's code in a repository and was used as an Agile tool
 - Heroku was used for deployment
 - Wireframes produced at Balsamiq
 - Models diagram produced at app.diagrams.net
