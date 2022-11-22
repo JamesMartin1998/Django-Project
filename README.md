@@ -1,8 +1,8 @@
 # Cinema Planet - Movie Booking Website
 
-Cinema Planet is the name of the make-believe company in my project. The company is a cinema chain that currently has three cinemas located in the UK. Like other cinemas, it functions by showing the latest, most popular movies. The Cinema Planet website aims to act as a venue for users to view the current movies available at cinema by naviagating through a movie menu. Users can also see information about the particular movies and are able to find the closest cinema to them via the implemented Google Maps API. Users are able to check upcoming showings for each movie and can even make a booking. After making a booking, the user has access to full CRUD functionality, being able to see their active bookings, edit them and delete them. Consequently, the Cinema Planet website gives the user full control over their bookings and acts as an alternative method to the traditional methods of booking cinema tickets, such as by physically visiting the cinema or calling the cinema by telephone. With the almost instant nature of booking online, as well as the easy control over bookings, the website provides the user with a superior user experience and thus represents an advantage for companies in a competitive market. 
+Cinema Planet is the name of the make-believe company in my project. The company is a cinema chain that currently has three cinemas located in the UK. Like other cinemas, it functions by showing the latest, most popular movies. The Cinema Planet website aims to act as a venue for users to view the current movies available at cinema by navigating through a movie menu. Users can also see information about the particular movies and are able to find the closest cinema to them via the implemented Google Maps API. Users are able to check upcoming showings for each movie and can even make a booking. After making a booking, the user has access to full CRUD functionality, being able to see their active bookings, edit them and delete them. Consequently, the Cinema Planet website gives the user full control over their bookings and acts as an alternative method to the traditional methods of booking cinema tickets, such as by physically visiting the cinema or calling the cinema by telephone. With the almost instant nature of booking online, as well as the easy control over bookings, the website provides the user with a superior user experience and thus represents an advantage for companies in a competitive market. 
 
-The target audience for this project would include, but is not limited to, movie and cinema lovers. These people act as a prime customer for Cinema Planet as they would love the service provided by the cinema and its website. By making an optimal user experience on the website, and coupling it with adequate quality cinemas, it is likely that this demographic would be regular, recurrent customers. In addition, people that don't usually go to the cinema but perhaps occasionally want to visit would be more likely to visit the cinema if the booking system is simple. Thus, the Cinema Planet website appeals to a large audience.
+The target audience for this project would include, but is not limited to, movie and cinema lovers. These people act as a prime customer for Cinema Planet as they would love the service provided by the cinema and its website. By making an optimal user experience on the website, and coupling it with above adequate quality cinemas, it is likely that this demographic would be regular, recurrent customers. In addition, people that don't usually go to the cinema but perhaps occasionally want to visit would be more likely to visit the cinema if the booking system is simple. Thus, the Cinema Planet website appeals to a large audience.
 
 ![Image showing website responsiveness](./static/images/amiresponsive.png)
 
@@ -54,13 +54,28 @@ Like the 'Sign Up' page, the aim of the 'Login' page was to provide a simple, at
 
 During the planning stage of the project, I produced a list of user stories. Further into the project, I realised that there was a need for more functionailty and thus I added some more user stories during the development of the project. I also decided that although some user stories were valuable, they were not necessary to include, particularly when considering the scope of the project. For example, the account email confirmation wasn't necessary as messages were displayed to the user to inform them that their account was created, instead. An Agile tool, in the form of GitHub, was used to manage the planning and implementation of all significant functionality. Issues were created for each user story and these were mapped to the project. During development, these user stories were accessed on a Kanban board, where I could organise my workload by moving the user stories between the 'Todo', 'In Progress' and 'Done' columns.
 
+![Image showing user stories](./static/images/user-stories.png)
+
+- Prioritised User Stories
+    - As a Site User, I can register for an account so that I can make bookings.
+    - As a Site User, I can log in and out of my account so that I can access my account securely.
+    - As a Site User, I can make bookings so that I can reserve tickets for a specific movie.
+    - As a Site User, I can edit my booking	so that I can change the number of tickets I buy.
+    - As a Site User, I can	cancel bookings	so that I can have flexibility with my plans.
+    - As a Site User, I can	view my bookings so that I can be reminded when logged in.
+    - As a Site User, I can view a movies menu so that I can see what movies are on at the cinema.
+    - As a Site User, I can view movie descriptions	so that I can view more information about each movie.
+    - As a Site User, I can view a showings menu for the selected movie	so that I can assess the best showing for my preferences.
+
+- Epics, User Stories and Tasks
+
+![Image showing epics, user stories and tasks](./static/images/epics-stories-tasks.png)
+
 ### Database Model
 
 Whilst planning the project, I decided that I would need five database tables: Movies, Showings, Bookings, Reviews and Users. A relational database was used and the relationships are illustrated by the lines on the diagram below. The User model was used by installing Django-allauth.
 
 ![Image showing database models](./static/images/models-diagram.png)
-
-![Image showing user stoires](./static/images/user-stories.png)
 
 ## Features
 
@@ -313,6 +328,13 @@ Whilst planning the project, I decided that I would need five database tables: M
 - Admins are responsible for listing the showings for each movie to keep the website up-to-date.
 - As the cinema website needs to evolve constantly to keep up-to-date with new movies and showings. The admin has a critically role in enabling this website's functionality.
 
+## Future Features
+
+- Semi-Automatic Showing Listings
+    - Currently site admin's can create a new movie when being shown at the cinema, using the Django admin site. They also have to add the individual showings for each movie on the django admin site. In the future, I would like to implement code that code get the time of a showing and then create another showing for the same movie but a week later. This would make be useful to the business as they could have a fixed weekly schedule and would have to list fewer showings so would save time.
+- Ecommerce - Shopping basket
+    - Currently users can only reserve tickets and pick them up when they go the cinema. In the future, I would like to implement a shopping cart, where users can select their booking to order and then pay online using a service such as PayPal.
+
 ## Manual Testing
 
 - The website has been tested and works on different browsers: Chrome, Samsung Internet, Microsoft Edge.
@@ -320,7 +342,7 @@ Whilst planning the project, I decided that I would need five database tables: M
 - All links and buttons can be clicked and provide their expected results.
 - All pages are responsive on all standard screen sizes and functions correctly.
 
-For this Django project, extensive manual testing was performed.
+For this Django project, extensive manual testing was performed to test both Python and JavaScript code.
 
 ### High Level Test Cases
 
@@ -497,13 +519,6 @@ Tests were performed at https://pep8ci.herokuapp.com/
 ### Unsolved Bugs
 
 - There are no remaining known bugs.
-
-## Future Features
-
-- Semi-Automatic Showing Listings
-    - Currently site admin's can create a new movie when being shown at the cinema, using the Django admin site. They also have to add the individual showings for each movie on the django admin site. In the future, I would like to implement code that code get the time of a showing and then create another showing for the same movie but a week later. This would make be useful to the business as they could have a fixed weekly schedule and would have to list fewer showings so would save time.
-- Ecommerce - Shopping basket
-    - Currently users can only reserve tickets and pick them up when they go the cinema. In the future, I would like to implement a shopping cart, where users can select their booking to order and then pay online using a service such as PayPal.
 
 ## Database
 
