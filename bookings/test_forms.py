@@ -2,6 +2,8 @@ from django.test import TestCase
 from .forms import BookingForm, ReviewForm
 from .models import Bookings, Reviews
 
+# Form tests based on code from Code Insitutes Hello Django project
+
 
 class TestBookingForm(TestCase):
 

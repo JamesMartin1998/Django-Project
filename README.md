@@ -87,13 +87,13 @@ Whilst planning the project, I decided that I would need five database tables: M
 - Allows users to navigate between the different pages on the site.
 - Hovering over the navbar links will cause a lightening effect to show that the elements are clickable.
 - On smaller devices, a hamburger button appears and when clicked opens a drop-down of the navbar links in a vertical list. This prevents the navbar from taking up unnecessary space when not in use, on smaller devices.
-- When users are logged out, they will see links to 'Sign Up' and 'Login'. Logged in users will instead see a 'Logout link'. This dynamic navbar provides users with access to the appropriate functionality for their circumstances, as well as indicates to them their login state.
+- When users are logged out, they will see links to 'Sign Up' and 'Login'. Logged in users will instead see a 'Logout link'. This dynamic navbar provides users with access to the appropriate functionality for their circumstances, as well as indicate to them their login state.
 - Created using bootstrap for a simple, responsive design.
 
 ![Image showing navbar](./static/images/navbar.png)
 (Large device navbar - logged out)
 
-![Image showing navbar](./static/images/navbar.png)
+![Image showing navbar](./static/images/navbar-logged-in.png)
 (Large device navbar - logged in)
 
 ![Image showing navbar](./static/images/navbar-mobile.png) <br />
@@ -107,10 +107,10 @@ Whilst planning the project, I decided that I would need five database tables: M
 ### Home Page Carousel
 
 - This carousel section allows users to cycle thorugh images of the movies currently being shown at the cinema.
-- Constributes to forming a modern, attractive landing page.
+- Contributes to forming a modern, attractive landing page.
 - Occupies the majority of the page to allow users to clearly see the type of website instantly upon loading the website.
 - Regular customers can instantly know if the latest movies are being shown at the cinema by cycling through the carousel.
-- Buttons used to allow the user to click and cycle left and right continuously through the loop of movies.
+- Buttons are used to allow the user to click and cycle left and right continuously through the loop of movies.
 
 ![Image showing movie carousel](./static/images/movie-carousel.png)
 - JavaScript was used to provide the carousel functionality
@@ -119,7 +119,7 @@ Whilst planning the project, I decided that I would need five database tables: M
 
 ### Home Page Active Bookings
 
-- This section only appears for users that are logged in, that have already made a booking. If a user isn't logged in, or has no active bookings, the section will not be displayed.
+- This section only appears for users that are logged in, and that have already made a booking. If a user isn't logged in, or has no active bookings, the section will not be displayed.
 - By being located on the home page, users can easily find their booking information, and thus receive a convenient user experience.
 - The title clearly shows users what the section is showing.
 - When a user makes a new booking, the details of the booking appear as a new row in the table under the heading.
@@ -128,7 +128,7 @@ Whilst planning the project, I decided that I would need five database tables: M
 - Each booking has its own 'Edit' button. Clicking will redirect the user to a new page where they can edit the details of their booking.
 - Each booking has its own 'Cancel' button. Clicking will redirect the user to a new page where they can confirm their cancellation.
 - 'Edit' and 'Cancel' buttons appear red to stand out easily to the user. A white hover effect makes it obvious to the user that the buttons are clickable.
-- Due to the nature of the table being difficult to display on smaller devices, some less important booking details will become hidden to the user to allow the page to be responsive. Bookings can still be identified as sufficient information is kept visible for the uesr and if the user wishes to find all of the details of their booking, they can do so by clicking the 'Edit' button and viewing the details on the 'Edit Booking' page.
+- Due to the nature of the table being difficult to display on smaller devices, some less important booking details will become hidden to the user to allow the page to be responsive. Bookings can still be identified, as sufficient information is kept visible for the uesr and if the user wishes to find all of the details of their booking, they can do so by clicking the 'Edit' button and viewing the details on the 'Edit Booking' page.
 
 ![Image showing active bookings](./static/images/active-bookings.png)
 (Large device - Active Bookings)
@@ -184,7 +184,7 @@ Whilst planning the project, I decided that I would need five database tables: M
 ### Reviews
 
 - Allows users to read and make reviews about the selected movie.
-- The review section is separated from the rest of the page with a horizontal rule. This clearly defines the sections to the user whilst keeping the reviews on the same page is its core information.
+- The review section is separated from the rest of the page with a horizontal rule. This clearly defines the sections to the user whilst keeping the reviews on the same page as its core information.
 - The 'Make a Review' title and form are only displayed and made available for logged in users. This is due to the reviews requiring a username.
 - The form body acts as an area for users to write their reviews.
 - A clear, red button, consistent with other buttons on the website, is labeled 'Submit'. When clicked, the user's review will be posted.
@@ -207,7 +207,7 @@ Whilst planning the project, I decided that I would need five database tables: M
 - The table headings are bold and the columns have margin so that the information for each column is clear to the user. Users are able to see their booking: 'Movie', 'Location', 'Date', 'Time', 'Seats remaining' and 'Ticket Price'.
 - The information shown about each showing allows users to make a choice based on their circumstances and preferences. For example, users can search for a showing at their closest cinema, at their favoured date and time. Users are also able to see if there are enough seats remaining for their attending party and whether the price is satisfactory before clicking on a showing to book. This therefore provides a beneficial user experience.
 - Due to the table being difficult to show on smaller devices. The page acts responsively to maximise its use of space by hiding the 'Movie' column as it is clear that the showings are for the selected movie with the title and image above. In addition, the ticket price is consistent for all showings of a particular movie so this column is hidden and the information is provided above the table. The seats remaining information is also becomes hidden but is made available by being displayed on the next page.
-- Each movie showing row has its own 'Book' button. By clicking this button, if the user is logged in, they can select a showing and will be redirected to page where they can select their number of tickets are confirm their booking. If the user is logged out, clicking the link will redirect the user to the 'Sign In' page; as only authenticated users are able to make bookings. This is consistent with other buttons on the website, reinforcing the theme. The white hover effect, again, shows that the button is clickable.
+- Each movie showing row has its own 'Book' button. By clicking this button, if the user is logged in, they can select a showing and will be redirected to page where they can select their number of tickets and confirm their booking. If the user is logged out, clicking the link will redirect the user to the 'Sign In' page; as only authenticated users are able to make bookings. This is consistent with other buttons on the website, reinforcing the theme. The white hover effect, again, shows that the button is clickable.
 
 ![Image showing movie showings](./static/images/showings.png)
 (Large device - Showings Page)
@@ -236,7 +236,7 @@ Whilst planning the project, I decided that I would need five database tables: M
  - The movie title and image is used to continue the consistent theme as throughout and clearly show the user the movie selected in their booking.
  - Using the 'Showing' dropdown box, users are able to change their showing for the selected movie. This enables them to change to a more suitable location, date, time.
  - Users are also able to input a new 'Number of Tickets'. This enables users to have flexibility over situations where additional people want to join there party, as well as if members need to cancel their ticket without canceling the whole group.
- - The 'Number of Tickets' input, has the same valiadtion applied as the for the 'Order' form. Consequently users are unable to book tickets that are a higher amount than the remaining number of seats remaining for the showing, a negative number of tickets, more than eight tickets, 0 tickets, string values or float values. Attempting to submit the form with one of these invalid formats will result in an error message to explain the problem, and the page reloading.
+ - The 'Number of Tickets' input, has the same validation applied as the for the 'Order' form. Consequently users are unable to book tickets that are a higher amount than the remaining number of seats remaining for the showing, a negative number of tickets, more than eight tickets, 0 tickets, string values or float values. Attempting to submit the form with one of these invalid formats will result in an error message to explain the problem, and the page reloading.
  - If the user decides to change the number of tickets for a booking, the number of seats remaining for the affected showing or showings will update correctly.
  - Upon submission of a valid form by clicking the 'Submit' button, the user will receive a success message to inform them that their booking has updated successfully and they will be redirected to the home page. The user is then able to see their new booking details in the 'Active Bookings' section.
 
@@ -360,6 +360,10 @@ Mapped to user stories:
 
 Full Results can be found [here](django-project-testing.xlsx)
 
+## Automated Testing
+
+Automated testing was performed using UnitTest in the test_forms.py file to test the forms.py file. All tests passed.
+
 ## Validator Testing
 
 ### W3C HTML Validator
@@ -458,6 +462,10 @@ Tests were performed at https://pep8ci.herokuapp.com/
 
 ![Image showing settings.py PEP8 validation](./static/images/settings-pep8.png)
 
+- test-forms.py - No errors
+
+![Image showing test-forms.py PEP8 validation](./static/images/test-forms.png)
+
 ### Lighthouse Testing
 
 - Homepage
@@ -506,9 +514,9 @@ Tests were performed at https://pep8ci.herokuapp.com/
 ### Solved Bugs
 
 - Updating the seats remaining for showings
-    - Initially when users tried to make or edit a booking, they could book successfully, however the showing in their booking wouldn't update the number of seats correctly. This effectively meant that despite have bookings, the show would always have 50 seats remaining. This bug was fixed by requesting the ticket number from the form when a user is booking and getting the showing's seats remaining. The tickets was then minused from the showing's seats remaining, and the showing was saved. 
+    - Initially when users tried to make or edit a booking, they could book successfully, however the showing in their booking wouldn't update the number of seats correctly. This effectively meant that despite have bookings, the show would always have 50 seats remaining. This bug was fixed by requesting the ticket number from the form when a user is booking and getting the showing's seats remaining. The tickets were then minused from the showing's seats remaining, and the showing was saved. 
 
-    - This bug was even more difficult to solve when edited a booking to change the showing. Initially, the bug caused the original showing and new showing in the booking to have seats occupied by the tickets in the booking. To solve this, the original showing had to have the number of tickets from the original booking added back onto the original showing's number of seats. Then, the new showing had have number of tickets in the new booking deducted from the new showing's number of seats remaining.
+    - This bug was even more difficult to solve when editing a booking to change the showing. Initially, the bug caused the original showing and new showing in the booking to have seats occupied by the tickets in the booking. To solve this, the original showing had to have the number of tickets from the original booking added back onto the original showing's number of seats. Then, the new showing had have number of tickets in the new booking deducted from the new showing's number of seats remaining.
 
 - Reloading the order form after an invalid input
     - When a form has an invalid data input, the order page should be reloaded with a new form. However, a bug was occuring because the order page requires slug and id inputs to access the URL. Tutor John, at Code Institute, recommended using the 'reverse' method in order to pass in the arguments required, e.g. return redirect(reverse('order', args=[slug, id])).
@@ -543,18 +551,18 @@ Finally, I made a new config var for the project on the Heroku site; having a va
 During the development of the project, version control was used by committing and pushing the code to GitHub. The GitHub repository can be found here: https://github.com/JamesMartin1998/Django-Project
 
 This project was deployed to Heroku by:
-Within Gitpod, adding the dependencies to the requirements file by typing 'pip3 freeze > requirements.txt' in the terminal.
-Committing and pushing the code to GitHub.
-On the Heroku website, clicking 'Create New App'.
-Setting the name and region and pressing 'Create App'.
-Clicking the 'Settings' tab.
-Setting config vars for the keys: CLOUDINARY_URL, DATABASE_URL, PORT and SECRET_KEY.
-Clicking 'Add Buildpack', 'Python', 'Save Changes'.
-Click the 'Deploy' tab.
-Click 'Connect to GitHub', search for repository, click 'Connect'.
-Enable Manual Deploy. Check for successful message.
-Enable Automatic Deploys.
-The live site can be found here: https://cinema-planet.herokuapp.com/
+- Within Gitpod, adding the dependencies to the requirements file by typing 'pip3 freeze > requirements.txt' in the terminal.
+- Committing and pushing the code to GitHub.
+- On the Heroku website, clicking 'Create New App'.
+- Setting the name and region and pressing 'Create App'.
+- Clicking the 'Settings' tab.
+- Setting config vars for the keys: CLOUDINARY_URL, DATABASE_URL, PORT and SECRET_KEY.
+-Clicking 'Add Buildpack', 'Python', 'Save Changes'.
+- Click the 'Deploy' tab.
+- Click 'Connect to GitHub', search for repository, click 'Connect'.
+- Enable Manual Deploy. Check for successful message.
+- Enable Automatic Deploys.
+- The live site can be found here: https://cinema-planet.herokuapp.com/
 
 ### Run Locally
 - Manually Downloading the Repository:
@@ -616,4 +624,3 @@ The live site can be found here: https://cinema-planet.herokuapp.com/
 - Google Maps installed using code from Code Institute's Bootstrap Resume project
 - Thanks to tutor John, at Code Institute for helping to solve the bug prevented forms reloading after invalid submissions
 - Thanks to my mentor, Ronan, for his guidance on the project
-
