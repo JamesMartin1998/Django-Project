@@ -458,13 +458,11 @@ Tests were performed at https://pep8ci.herokuapp.com/
 
 ![Image showing cinemaplanet urls PEP8 validation](./static/images/cinemaplanet-urls.png)
 
-- settings.py - No errors
-
-![Image showing settings.py PEP8 validation](./static/images/settings-pep8.png)
-
 - test-forms.py - No errors
 
 ![Image showing test-forms.py PEP8 validation](./static/images/test-forms.png)
+
+- settings.py and env.py not included for PEP* testing
 
 ### Lighthouse Testing
 
