@@ -462,7 +462,7 @@ Tests were performed at https://pep8ci.herokuapp.com/
 
 ![Image showing test-forms.py PEP8 validation](./static/images/test-forms.png)
 
-- settings.py and env.py not included for PEP* testing
+- settings.py and env.py not included for PEP8 testing.
 
 ### Lighthouse Testing
 
